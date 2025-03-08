@@ -1,28 +1,34 @@
 import click
 
 from app.commands.groups import pdf_cli
-from app.services import Pdf
+from app.services import Document, Pdf
 
 
-# call this CLI command as `flask user create <name> <name2>`:
-# flask user create awes awes2
-@pdf_cli.command('combine') # the string value here represents the command_name
-# choose whatever name you want for these arguments. 
-# They map ordered to the function parameter names.
-# Two args need two parameters, etc.
-@click.argument('webpage_url')
-@click.argument('output_file_name_without_extension')
-@click.argument('output_directory') 
-# TODO:
-# function name structure: verb_object
-# and use the same name for argument mapping so it's not confusing
+@pdf_cli.command('combine') 
+@click.option(
+    '-c',
+    '--count',
+    default=1,
+    help='Number of existing files.'
+)
+@click.argument('output_directory', default="~/Downloads") 
+@click.argument('output_file_name_without_extension', default="output")
+@click.argument('webpage_urls', nargs=-1)
+# default="",
+# required=False,
 def combine_pdfs(
-    webpage_url,
-    output_file_name_without_extension,
-    output_directory
-): 
+    count: int, # TODO: validate that the supplied arg for this parameter can convert to an int
+    output_directory: str,
+    output_file_name_without_extension: str,
+    webpage_urls: tuple[str, ...], # TODO: should this support more than one at a time?
+):
+    existing_file_paths = Document.select(
+        int(count)
+    )
+
     Pdf.combine(
-        webpage_url,
+        existing_file_paths,
+        webpage_urls,
         output_file_name_without_extension,
         output_directory
     )

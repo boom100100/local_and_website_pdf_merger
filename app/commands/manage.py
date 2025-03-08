@@ -1,4 +1,4 @@
-from app.commands.user_group import pdf_cli
+from app.commands.pdf_group.combine import pdf_cli
 
 command_groups = [
     pdf_cli,
