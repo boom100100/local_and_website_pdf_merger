@@ -48,13 +48,7 @@ Run
 to delete Pipfile.lock. 
 
 ## Run
-Run the following from the project's root directory:
-
-    flask run --debug
-
-## Add new CLI commands
-
-CLI commands live in `app/commands`. Call them with the following structure: `flask <app_group_name> <command_name> <flag1> <flag1_arg> <arg1> <arg2> <arg_n>`, e.g. `flask pdf combine -c 2 "https://google.com" "https://google.com/maps" "https://google.com/images"`.
+CLI commands live in `app/commands`. Call them from the project root directory with the following structure: `flask <app_group_name> <command_name> <flag1> <flag1_arg> <arg1> <arg2> <arg_n>`, e.g. `flask pdf combine -c 2 "https://google.com" "https://google.com/maps" "https://google.com/images"`. Use the `--help` flag to learn about a command's specific options.
 
 
 ## Troubleshooting
