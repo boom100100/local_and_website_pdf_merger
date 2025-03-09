@@ -1,7 +1,8 @@
 import json
 import base64
-import os
 
+from app.services.utils import get_unique_file_name
+import pymupdf
 from selenium import webdriver
 
 
@@ -16,11 +17,13 @@ class Pdf:
         webpage_urls: tuple[str, ...],
         output_file_name_without_extension: str,
         output_directory: str,
-    ):
+    ) -> None:
         # TODO: enable reordering. All existing will always be before all webpage downloads.
         file_locations = existing_file_paths
         
-        print("Downloading webpage(s).")
+        if webpage_urls:
+            print("Downloading webpage(s).")
+
         for webpage_url in webpage_urls:
             webpage_pdf_file_path = Pdf.download_webpage_to_pdf_file(
                 webpage_url,
@@ -41,7 +44,8 @@ class Pdf:
             return
 
         print("Combining pdfs.")
-        combined_file_path = f"{output_directory}/{output_file_name_without_extension} combined.pdf"
+        output_file_name_without_extension_combined = f"{output_file_name_without_extension} combined"
+        combined_file_path = get_unique_file_name(output_directory, output_file_name_without_extension_combined)
         Pdf.combine_files(combined_file_path, file_locations)
 
         print("Finished combining.")
@@ -51,14 +55,10 @@ class Pdf:
 
     @staticmethod
     def download_webpage_to_pdf_file(
-        webpage_url,
-        output_file_name_without_extension,
-        output_directory
+        webpage_url: str,
+        output_file_name_without_extension: str,
+        output_directory: str
     ) -> str:
-
-        # webpage_url = "https://www.google.com/"
-        # output_file_name_without_extension = "MyNewName"
-        # output_directory = "/Users/bernadette/Downloads"
         output_file_name = f"{output_file_name_without_extension}.pdf"
         output_path = f"{output_directory}/{output_file_name}"
 
@@ -91,13 +91,14 @@ class Pdf:
         # enabling headless requires alternative to driver.execute_script('window.print();')
         pdf_data = driver.execute_cdp_cmd("Page.printToPDF", settings)
 
-        # get unique file name
-        counter = 1
-        while os.path.isfile(output_path):
-            new_output_file_name_without_extension = f"{output_file_name_without_extension} ({counter})"
-            output_file_name = f"{new_output_file_name_without_extension}.pdf"
-            output_path = f"{output_directory}/{output_file_name}"
-            counter += 1
+        output_path = get_unique_file_name(output_directory, output_file_name_without_extension)
+        # # get unique file name
+        # counter = 1
+        # while os.path.isfile(output_path):
+        #     new_output_file_name_without_extension = f"{output_file_name_without_extension} ({counter})"
+        #     output_file_name = f"{new_output_file_name_without_extension}.pdf"
+        #     output_path = f"{output_directory}/{output_file_name}"
+        #     counter += 1
 
         # write pdf to file
         with open(output_path, 'wb') as file:
@@ -108,11 +109,16 @@ class Pdf:
         return output_path
 
     @staticmethod
-    def combine_files(combined_file_path, file_locations):
-        # bashCommand = f'"/System/Library/Automator/Combine PDF Pages.action/Contents/MacOS/join" -o "{combined_file_path}"'
-        bashCommand = f'"/System/Library/Automator/Combine PDF Pages.action/Contents/MacOS/Combine PDF Pages" -o "{combined_file_path}"'
-        for file_location in file_locations:
-            bashCommand += f' "{file_location}"'
-        os.system(bashCommand)
-        
+    def combine_files(
+        combined_file_path: str,
+        file_locations: list[str]
+    ) -> None:
+        pdfs = [
+            pymupdf.open(file_location)
+            for file_location in file_locations
+        ]
+        first_pdf = pdfs.pop(0)
+        for pdf in pdfs:
+            first_pdf.insert_pdf(pdf)
 
+        first_pdf.save(combined_file_path)
