@@ -4,6 +4,9 @@ import base64
 import pymupdf
 from selenium import webdriver
 
+from seleniumbase import SB
+
+
 from app.services.utils import get_unique_file_name
 
 
@@ -76,29 +79,80 @@ class Pdf:
         }
 
 
-        profile = {
-        'printing.print_preview_sticky_settings.appState': json.dumps(settings),
-        }
+        # profile = {
+        # 'printing.print_preview_sticky_settings.appState': json.dumps(settings),
+        # }
 
-        chrome_options = webdriver.ChromeOptions()
+        # chrome_options = webdriver.ChromeOptions()
 
-        chrome_options.add_experimental_option('prefs', profile)
-        chrome_options.add_argument('--kiosk-printing')
-        chrome_options.add_argument("--headless")
+        # chrome_options.add_experimental_option('prefs', profile)
+        # chrome_options.add_argument('--kiosk-printing')
+        # chrome_options.add_argument("--headless")
 
-        driver = webdriver.Chrome(options=chrome_options)
-        driver.get(webpage_url)
+        # driver = webdriver.Chrome(options=chrome_options)
+        # waitTime = 30
+        # driver.implicitly_wait(waitTime)
+        # driver.get(webpage_url)
 
         # enabling headless requires alternative to driver.execute_script('window.print();')
-        pdf_data = driver.execute_cdp_cmd("Page.printToPDF", settings)
+        # pdf_data = driver.execute_cdp_cmd("Page.printToPDF", settings)
+        # pdf_data = None
 
-        output_path = get_unique_file_name(output_directory, output_file_name_without_extension)
+        # with SB() as sb:
+        # with SB(uc=True, test=True) as sb:
+        with SB(uc=True) as sb:
+            # sb.activate_cdp_mode(url=webpage_url)
+            # sb.sleep(10)
+            # sb.get_element("iframe", by="css selector")
+            # sb.switch_to_frame("iframe")
+            # sb.uc_gui_click_captcha()
+            # sb.cdp.gui_click_element("input[type=checkbox]")
+            # sb.click("input[type=checkbox]", by="css selector", timeout=None, delay=0, scroll=True)
+
+            # # sb.uc_open(webpage_url)
+            # sb.switch_to_default_content()
+            # # sb.uc_open("https://google.com")
+            # # sb.uc_open_with_reconnect(webpage_url)
+            # # # sb.uc_open(webpage_url)
+            # # sb.save_cookies(name="cookies.txt")
+            # # sb.uc_open("https://google.com/maps")
+            # # sb.uc_open("https://google.com/shopping")
+            # # sb.uc_open("https://google.com/images")
+            # # sb.uc_open_with_reconnect(webpage_url)
+            # # sb.uc_gui_click_captcha()
+            # # sb.uc_open_with_disconnect(webpage_url)
+            # # sb.uc_gui_handle_captcha()
+            # # sb.uc_open_with_disconnect(webpage_url, timeout=1)
+            # # sb.sleep(180)
+            # # sb.switch_to_frame()
+            # # sb.cdp.gui_click_element("input[type=checkbox]")
+            # # sb.sleep(180)
+            # # sb.uc_gui_click_captcha()
+            # # sb.uc_gui_click_captcha()
+            # # sb.sleep(180)
+            # # sb.cdp.gui_click_element("#turnstile-widget div")
+        # # with SB(uc=True) as sb:
+        #     sb.activate_cdp_mode(url=webpage_url)
+        #     # sb.uc_open_with_reconnect(webpage_url)
+            sb.activate_cdp_mode()
+            sb.open(webpage_url)
+            sb.uc_gui_click_captcha()
+        #     sb.sleep(4)
+            # sb.uc_gui_handle_captcha()
+            # pdf_data = driver.execute_cdp_cmd("Page.printToPDF", settings)
+            pdf_data = sb.execute_cdp_cmd("Page.printToPDF", settings)
+            # write pdf to file
+            output_path = get_unique_file_name(output_directory, output_file_name_without_extension)
+            # output_file_name = output_path.strip(f"{output_directory}/")
+
+            # sb.save_data_as(pdf_data, output_file_name, destination_folder=output_directory)
+
 
         # write pdf to file
         with open(output_path, 'wb') as file:
             file.write(base64.b64decode(pdf_data['data']))
 
-        driver.close()
+        # driver.close()
 
         return output_path
 
