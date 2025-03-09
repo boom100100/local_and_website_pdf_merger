@@ -4,12 +4,12 @@ from app.commands.groups import pdf_cli
 from app.services import Document, Pdf
 
 
-@pdf_cli.command('combine') 
+@pdf_cli.command('combine', context_settings={'show_default': True}) 
 @click.option(
     '-c',
     '--count',
     default=1,
-    help='Number of existing files.'
+    help='Number of local files to merge.'
 )
 @click.option(
     '-d',
