@@ -92,13 +92,6 @@ class Pdf:
         pdf_data = driver.execute_cdp_cmd("Page.printToPDF", settings)
 
         output_path = get_unique_file_name(output_directory, output_file_name_without_extension)
-        # # get unique file name
-        # counter = 1
-        # while os.path.isfile(output_path):
-        #     new_output_file_name_without_extension = f"{output_file_name_without_extension} ({counter})"
-        #     output_file_name = f"{new_output_file_name_without_extension}.pdf"
-        #     output_path = f"{output_directory}/{output_file_name}"
-        #     counter += 1
 
         # write pdf to file
         with open(output_path, 'wb') as file:
