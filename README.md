@@ -2,7 +2,10 @@
 
 ## Description
 
-Python CLI tools for merging PDFs.
+Python CLI tools for merging PDFs. For now, this project won't support:
+
+- Reordering webpage download files in front of local files. Chosen local files will always be merged in front of files downloaded from the web. The workaround for this is 1) to run the tool to download webpage files locally, and then 2) re-run the tool to select each local file to merge in the ideal order.
+- Selecting individual pages or changing their order.
 
 ## Setup
 
@@ -51,7 +54,7 @@ Run the following from the project's root directory:
 
 ## Add new CLI commands
 
-CLI commands live in `app/commands`. Call them with the following structure: `flask <app_group_name> <command_name> <arg1> <arg2>`, e.g. `flask user create username super_secret_password`.
+CLI commands live in `app/commands`. Call them with the following structure: `flask <app_group_name> <command_name> <flag1> <flag1_arg> <arg1> <arg2> <arg_n>`, e.g. `flask pdf combine -c 2 "https://google.com" "https://google.com/maps" "https://google.com/images"`.
 
 
 ## Troubleshooting
