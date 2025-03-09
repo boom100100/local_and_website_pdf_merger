@@ -9,6 +9,7 @@ A shell project for creating python CLI tools.
 
     cd projectDir
     brew install python@3.13
+    brew install python-tk
 
 ### Pipenv
 
