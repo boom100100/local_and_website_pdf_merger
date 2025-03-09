@@ -109,5 +109,10 @@ class Pdf:
 
     @staticmethod
     def combine_files(combined_file_path, file_locations):
-        ...
+        # bashCommand = f'"/System/Library/Automator/Combine PDF Pages.action/Contents/MacOS/join" -o "{combined_file_path}"'
+        bashCommand = f'"/System/Library/Automator/Combine PDF Pages.action/Contents/MacOS/Combine PDF Pages" -o "{combined_file_path}"'
+        for file_location in file_locations:
+            bashCommand += f' "{file_location}"'
+        os.system(bashCommand)
+        
 
