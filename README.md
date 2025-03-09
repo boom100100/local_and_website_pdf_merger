@@ -1,9 +1,8 @@
-# CLI Tools
+# Local and Website Pdf Merger CLI Tools
 
 ## Description
 
-A shell project for creating python CLI tools.
-
+Python CLI tools for merging PDFs.
 
 ## Setup
 
