@@ -1,9 +1,10 @@
 import json
 import base64
 
-from app.services.utils import get_unique_file_name
 import pymupdf
 from selenium import webdriver
+
+from app.services.utils import get_unique_file_name
 
 
 # TODO: consider functional approach if class requires no attributes.
