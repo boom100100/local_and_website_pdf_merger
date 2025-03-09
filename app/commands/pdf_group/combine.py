@@ -29,7 +29,7 @@ def combine_pdfs(
     output_directory: str,
     output_file_name_without_extension: str,
     webpage_urls: tuple[str, ...],
-):
+) -> None:
     existing_file_paths = Document.select(
         int(count)
     )
