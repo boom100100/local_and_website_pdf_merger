@@ -79,9 +79,11 @@ class Pdf:
         with SB(uc=True) as sb:
             sb.activate_cdp_mode(url=webpage_url)
             sb.uc_gui_click_captcha()
-            sb.uc_gui_click_cf()
-            sb.uc_gui_click_rc()
-            sb.sleep(20)
+            # sb.uc_gui_click_cf()
+            # sb.uc_gui_click_rc()
+            # TODO: there are some issues with indeed.com redirecting upon opening the print dialog.
+                # Consider capturing html and converting to PDF instead of printing to PDF.
+            # onbeforeunload = (event) => {event.preventDefault();};
             pdf_data = sb.execute_cdp_cmd("Page.printToPDF", settings)
 
             file_name = get_unique_file_name(output_directory, output_file_name_without_extension)
