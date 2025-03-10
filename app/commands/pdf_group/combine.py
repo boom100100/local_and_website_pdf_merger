@@ -16,7 +16,7 @@ from app.services import Document, Pdf
 @click.option(
     '-d',
     '--output-directory',
-    default=os.environ.get("OUTPUT_DIRECTORY","/Users/bernadette/Downloads"),
+    default=os.environ.get("OUTPUT_DIRECTORY", "./outputs"),
     help="""The destination directory for the combined and downloaded PDFs.
 Set the environmental variable OUTPUT_DIRECTORY or supply an argument via the flag."""
 ) 

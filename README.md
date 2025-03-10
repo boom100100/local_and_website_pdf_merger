@@ -27,6 +27,7 @@ This project won't support:
     brew install python-tk
 
     cp .env.example .env
+    cp -a outputs.example outputs
 
 ### Pipenv
 
