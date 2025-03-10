@@ -69,7 +69,8 @@ class Pdf:
         print(f"""Finished combining.
 See file at:
 
-{combined_file_path}""")
+{combined_file_path}
+""")
         # print("Finished combining.")
         # print("See file at:")
         # print(combined_file_path)
