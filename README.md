@@ -5,10 +5,11 @@
 Python CLI tools for merging PDFs.
 
 Features
-- Combine PDF files from the local computer
-- Convert webpages to PDF and combine them
-- Environment variables can be set to select files and webpages for serial usage
-- Automatically delete downloaded files
+- Combine PDF files from the local computer.
+- Convert webpages to PDF and combine them.
+- Environment variables can be set to select files, webpages, and the output directory for serial usage.
+- Automatically delete downloaded files.
+- Automatically open the combined file.
 
 This project won't support:
 
@@ -16,9 +17,9 @@ This project won't support:
 - Selecting individual pages or changing their order.
 - Fixing site-specific idiosyncracies.
   - YMMV with the captcha handling.
-  - A site may have built-in redirects before the printer prompt opens [ex. print this Indeed page](https://www.indeed.com/jobs?q=sm&l=New+York%2C+NY&from=searchOnHP&vjk=0bf7023a2547e8c8)
-  - iframes (not formally tested)
-  - Reformatting/excluded content in the printed PDF
+  - A site may have built-in redirects before the printer prompt opens [ex. print this Indeed page](https://www.indeed.com/jobs?q=sm&l=New+York%2C+NY&from=searchOnHP&vjk=0bf7023a2547e8c8).
+  - iframes (not formally tested).
+  - Reformatting/excluded content in the printed PDF.
 
 ## Setup
 
@@ -29,14 +30,13 @@ This project won't support:
     cp .env.example .env
     cp -a outputs.example outputs
 
-### Pipenv
-
     brew install pipenv
     pipenv shell
     pipenv install --python 3.13
 
 
-## Changing Dependencies
+## Development
+### Changing Dependencies
 Only run the following as needed!
 
 Run
