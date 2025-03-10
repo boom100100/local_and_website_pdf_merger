@@ -1,6 +1,15 @@
 import os
 
 
+def delete_files(file_paths, condition):
+    if condition:
+        for path in file_paths:
+            if os.path.isfile(path):
+                os.system(f'rm "{path}"')
+
+        print(f"Finished deleting files:\n\n{'\n'.join(file_paths)}")
+
+
 def get_unique_file_name(
     output_directory: str,
     output_file_name_without_extension: str

@@ -49,6 +49,12 @@ Example: $ WEBPAGE_URLS='["https://www.indeed.com/viewjob?jk=95dcd405c2a1b78b&ad
     is_flag=True,
     help="Open the combined file or the single file when the process is complete."
 )
+@click.option(
+    '-x',
+    '--delete-downloaded-files',
+    is_flag=True,
+    help="Delete downloaded PDFs. If also activated, the open (-o, --should-open-output-file) flag overrides this when 1 webpage and 0 local PDFs are selected to be combined."
+)
 @click.argument('webpage_urls', nargs=-1)
 def combine_pdfs(
     count: int,
@@ -57,8 +63,11 @@ def combine_pdfs(
     should_use_webpage_urls: bool,
     output_file_name_without_extension: str,
     should_open_output_file: bool,
+    delete_downloaded_files: bool,
     webpage_urls: tuple[str, ...],
 ) -> None:
+    # TODO: enable reordering. All existing will always be before all webpage downloads.
+
     if should_use_local_file_paths:
         existing_file_paths = json.loads(os.environ['LOCAL_FILE_PATHS'])
     else:
@@ -69,10 +78,11 @@ def combine_pdfs(
     if should_use_webpage_urls:
         webpage_urls = json.loads(os.environ['WEBPAGE_URLS'])
 
-    Pdf.combine(
+    Pdf(
         existing_file_paths,
         webpage_urls,
         output_file_name_without_extension,
         output_directory,
         should_open_output_file,
-    )
+        delete_downloaded_files,
+    ).combine()
