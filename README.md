@@ -2,21 +2,31 @@
 
 ## Description
 
-Python CLI tools for merging PDFs. For now, this project won't support:
+Python CLI tools for merging PDFs.
 
-- Reordering webpage download files in front of local files. Chosen local files will always be merged in front of files downloaded from the web. The workaround for this is 1) to run the tool to download webpage files locally, and then 2) re-run the tool to select each local file to merge in the ideal order.
+Features
+- Combine PDF files from the local computer
+- Convert webpages to PDF and combine them
+- Environment variables can be set to select files and webpages for serial usage
+- Automatically delete downloaded files
+
+This project won't support:
+
+- Reordering webpage download files in front of local files. Chosen local files will always be merged in front of files downloaded from the Internet. The workaround for this is 1) to run the tool to download webpage files locally, and then 2) re-run the tool to select each local file to merge in the ideal order.
 - Selecting individual pages or changing their order.
 - Fixing site-specific idiosyncracies.
   - YMMV with the captcha handling.
   - A site may have built-in redirects before the printer prompt opens [ex. print this Indeed page](https://www.indeed.com/jobs?q=sm&l=New+York%2C+NY&from=searchOnHP&vjk=0bf7023a2547e8c8)
-  - iframes
-  - reformatting/excluded content in print 
+  - iframes (not formally tested)
+  - Reformatting/excluded content in the printed PDF
 
 ## Setup
 
-    cd projectDir
+    cd projectDirectory
     brew install python@3.13
     brew install python-tk
+
+    cp .env.example .env
 
 ### Pipenv
 
