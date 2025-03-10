@@ -61,9 +61,6 @@ class Pdf:
         output_file_name_without_extension: str,
         output_directory: str
     ) -> str:
-        output_file_name = f"{output_file_name_without_extension}.pdf"
-        file_name = f"{output_directory}/{output_file_name}"
-
         settings = {
             "recentDestinations": [
                 {
@@ -86,14 +83,14 @@ class Pdf:
             # onbeforeunload = (event) => {event.preventDefault();};
             pdf_data = sb.execute_cdp_cmd("Page.printToPDF", settings)
 
-            file_name = get_unique_file_name(output_directory, output_file_name_without_extension)
-            output_path = f"{output_directory}/{file_name}"
+        output_file_name = get_unique_file_name(output_directory, output_file_name_without_extension)
+        output_path = f"{output_directory}/{output_file_name}"
 
         # write pdf to file
         with open(output_path, 'wb') as file:
             file.write(base64.b64decode(pdf_data['data']))
 
-        return file_name
+        return output_path
 
     @staticmethod
     def combine_files(
