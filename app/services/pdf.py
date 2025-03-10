@@ -46,7 +46,8 @@ class Pdf:
 
         print("Combining pdfs.")
         output_file_name_without_extension_combined = f"{output_file_name_without_extension} combined"
-        combined_file_path = get_unique_file_name(output_directory, output_file_name_without_extension_combined)
+        combined_file_name = get_unique_file_name(output_directory, output_file_name_without_extension_combined)
+        combined_file_path = f"{output_directory}/{combined_file_name}"
         Pdf.combine_files(combined_file_path, file_locations)
 
         print("Finished combining.")
@@ -61,7 +62,7 @@ class Pdf:
         output_directory: str
     ) -> str:
         output_file_name = f"{output_file_name_without_extension}.pdf"
-        output_path = f"{output_directory}/{output_file_name}"
+        file_name = f"{output_directory}/{output_file_name}"
 
         settings = {
             "recentDestinations": [
@@ -80,13 +81,14 @@ class Pdf:
             sb.uc_gui_click_captcha()
             pdf_data = sb.execute_cdp_cmd("Page.printToPDF", settings)
 
-            output_path = get_unique_file_name(output_directory, output_file_name_without_extension)
+            file_name = get_unique_file_name(output_directory, output_file_name_without_extension)
+            output_path = f"{output_directory}/{file_name}"
 
         # write pdf to file
         with open(output_path, 'wb') as file:
             file.write(base64.b64decode(pdf_data['data']))
 
-        return output_path
+        return file_name
 
     @staticmethod
     def combine_files(
