@@ -21,7 +21,7 @@ from app.services import Document, Pdf
 ) 
 @click.option(
     '-l',
-    '--use-local-file-paths',
+    '--should-use-local-file-paths',
     is_flag=True,
     help="""Identify local PDF(s) via LOCAL_FILE_PATHS in `.env` as a json array instead of choosing them via the GUI.
 This will ignore the count (-c, --count) flag.
@@ -34,15 +34,22 @@ Example: $ LOCAL_FILE_PATHS='["/Users/bernadette/Downloads/Bernadette Davis Prof
     default="output",
     help="The base file name for the combined and downloaded PDFs."
 ) 
+@click.option(
+    '-o',
+    '--should-open-output-file',
+    is_flag=True,
+    help="Open the combined file or the single file when the process is complete."
+) 
 @click.argument('webpage_urls', nargs=-1)
 def combine_pdfs(
     count: int,
     output_directory: str,
-    use_local_file_paths: bool,
+    should_use_local_file_paths: bool,
     output_file_name_without_extension: str,
+    should_open_output_file: bool,
     webpage_urls: tuple[str, ...],
 ) -> None:
-    if use_local_file_paths:
+    if should_use_local_file_paths:
         existing_file_paths = json.loads(os.environ['LOCAL_FILE_PATHS'])
     else:
         existing_file_paths = Document.select(
@@ -53,5 +60,6 @@ def combine_pdfs(
         existing_file_paths,
         webpage_urls,
         output_file_name_without_extension,
-        output_directory
+        output_directory,
+        should_open_output_file,
     )

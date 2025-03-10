@@ -4,7 +4,7 @@ import pymupdf
 from seleniumbase import SB
 
 
-from app.services.utils import get_unique_file_name
+from app.services.utils import get_unique_file_name, open_file
 
 
 # TODO: consider functional approach if class requires no attributes.
@@ -18,6 +18,7 @@ class Pdf:
         webpage_urls: tuple[str, ...],
         output_file_name_without_extension: str,
         output_directory: str,
+        should_open_output_file: bool,
     ) -> None:
         # TODO: enable reordering. All existing will always be before all webpage downloads.
         file_locations = existing_file_paths
@@ -42,6 +43,7 @@ class Pdf:
             print("There is only one file to combine:\n")
             print(file_locations[0])
             print("\nEnding process early.")
+            open_file(file_locations[0], should_open_output_file)
             return
 
         print("Combining pdfs.")
@@ -53,6 +55,7 @@ class Pdf:
         print("Finished combining.")
         print("See file at:")
         print(combined_file_path)
+        open_file(combined_file_path, should_open_output_file)
 
 
     @staticmethod

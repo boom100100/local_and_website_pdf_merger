@@ -14,3 +14,9 @@ def get_unique_file_name(
         counter += 1
     
     return final_name
+
+def open_file(path: str, condition: bool):
+    # including isfile check to make sure there's no weird injection activity. 
+    # TODO: validate need for this further.
+    if condition and os.path.isfile(path):
+        os.system(f'open "{path}"')
