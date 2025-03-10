@@ -70,9 +70,6 @@ class Pdf:
 See file at:
 
 {combined_file_path}""")
-        # print("Finished combining.")
-        # print("See file at:")
-        # print(combined_file_path)
         open_file(combined_file_path, self.should_open_output_file)
         delete_files(file_locations_for_deletion, self.should_delete_downloaded_files)
 
