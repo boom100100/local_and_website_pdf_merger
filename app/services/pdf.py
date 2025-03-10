@@ -3,6 +3,7 @@ import base64
 import pymupdf
 from seleniumbase import SB
 
+
 from app.services.utils import get_unique_file_name
 
 
@@ -75,7 +76,6 @@ class Pdf:
         }
 
         with SB(uc=True) as sb:
-            
             sb.activate_cdp_mode(url=webpage_url)
             sb.uc_gui_click_captcha()
             pdf_data = sb.execute_cdp_cmd("Page.printToPDF", settings)
