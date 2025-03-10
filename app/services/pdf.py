@@ -65,7 +65,8 @@ class Pdf:
         print(f"""Finished combining.
 See file at:
 
-{combined_file_path}""")
+{combined_file_path}
+""")
         open_file(combined_file_path, self.should_open_output_file)
         delete_files(file_locations_for_deletion, self.should_delete_downloaded_files)
 
