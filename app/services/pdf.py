@@ -1,8 +1,8 @@
-import json
 import base64
 
 import pymupdf
-from selenium import webdriver
+from seleniumbase import SB
+
 
 from app.services.utils import get_unique_file_name
 
@@ -75,30 +75,16 @@ class Pdf:
             "version": 2
         }
 
+        with SB(uc=True) as sb:
+            sb.activate_cdp_mode(url=webpage_url)
+            sb.uc_gui_click_captcha()
+            pdf_data = sb.execute_cdp_cmd("Page.printToPDF", settings)
 
-        profile = {
-        'printing.print_preview_sticky_settings.appState': json.dumps(settings),
-        }
-
-        chrome_options = webdriver.ChromeOptions()
-
-        chrome_options.add_experimental_option('prefs', profile)
-        chrome_options.add_argument('--kiosk-printing')
-        chrome_options.add_argument("--headless")
-
-        driver = webdriver.Chrome(options=chrome_options)
-        driver.get(webpage_url)
-
-        # enabling headless requires alternative to driver.execute_script('window.print();')
-        pdf_data = driver.execute_cdp_cmd("Page.printToPDF", settings)
-
-        output_path = get_unique_file_name(output_directory, output_file_name_without_extension)
+            output_path = get_unique_file_name(output_directory, output_file_name_without_extension)
 
         # write pdf to file
         with open(output_path, 'wb') as file:
             file.write(base64.b64decode(pdf_data['data']))
-
-        driver.close()
 
         return output_path
 
