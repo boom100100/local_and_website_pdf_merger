@@ -14,9 +14,11 @@ Python CLI tools for merging PDFs. For now, this project won't support:
 
 ## Setup
 
-    cd projectDir
+    cd projectDirectory
     brew install python@3.13
     brew install python-tk
+
+    cp .env.example .env
 
 ### Pipenv
 
