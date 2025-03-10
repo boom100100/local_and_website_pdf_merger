@@ -46,7 +46,8 @@ class Pdf:
 
         print("Combining pdfs.")
         output_file_name_without_extension_combined = f"{output_file_name_without_extension} combined"
-        combined_file_path = get_unique_file_name(output_directory, output_file_name_without_extension_combined)
+        combined_file_name = get_unique_file_name(output_directory, output_file_name_without_extension_combined)
+        combined_file_path = f"{output_directory}/{combined_file_name}"
         Pdf.combine_files(combined_file_path, file_locations)
 
         print("Finished combining.")
@@ -60,9 +61,6 @@ class Pdf:
         output_file_name_without_extension: str,
         output_directory: str
     ) -> str:
-        output_file_name = f"{output_file_name_without_extension}.pdf"
-        output_path = f"{output_directory}/{output_file_name}"
-
         settings = {
             "recentDestinations": [
                 {
@@ -78,9 +76,15 @@ class Pdf:
         with SB(uc=True) as sb:
             sb.activate_cdp_mode(url=webpage_url)
             sb.uc_gui_click_captcha()
+            # sb.uc_gui_click_cf()
+            # sb.uc_gui_click_rc()
+            # TODO: there are some issues with indeed.com redirecting upon opening the print dialog.
+                # Consider capturing html and converting to PDF instead of printing to PDF.
+            # onbeforeunload = (event) => {event.preventDefault();};
             pdf_data = sb.execute_cdp_cmd("Page.printToPDF", settings)
 
-            output_path = get_unique_file_name(output_directory, output_file_name_without_extension)
+        output_file_name = get_unique_file_name(output_directory, output_file_name_without_extension)
+        output_path = f"{output_directory}/{output_file_name}"
 
         # write pdf to file
         with open(output_path, 'wb') as file:
