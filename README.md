@@ -30,6 +30,13 @@ This project won't support:
     cp .env.example .env
     cp -a outputs.example outputs
 
+    <!-- for macos -->
+    cp com.automatedbooks.convert_and_combine_pdfs.json.macos com.automatedbooks.convert_and_combine_pdfs.json
+    chmod 755 convert_and_combine_pdfs.sh
+
+    <!-- for Windows -->
+    cp com.automatedbooks.convert_and_combine_pdfs.json.windows com.automatedbooks.native.messaging.json
+
     brew install pipenv
     pipenv shell
     pipenv install --python 3.13

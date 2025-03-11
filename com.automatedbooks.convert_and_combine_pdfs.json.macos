@@ -1,0 +1,10 @@
+{
+  "name": "com.automatedbooks.convert_and_combine_pdfs",
+  "description": "Receives requests and sends responses related to combining PDFs.",
+  "path": "convert_and_combine_pdfs.sh",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://<YOUR EXTENSION HASH>/",
+    "chrome-extension://<YOUR EXTENSION HASH>/"
+  ]
+}
