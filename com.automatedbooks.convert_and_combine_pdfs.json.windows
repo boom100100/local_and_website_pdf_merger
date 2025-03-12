@@ -4,6 +4,6 @@
   "path": "convert_and_combine_pdfs.bat",
   "type": "stdio",
   "allowed_origins": [
-    "chrome-extension://<YOUR EXTENSION HASH>/"
+    "chrome-extension://<YOUR EXTENSION ID>/"
   ]
 }

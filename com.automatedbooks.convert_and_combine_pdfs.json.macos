@@ -1,10 +1,9 @@
 {
   "name": "com.automatedbooks.convert_and_combine_pdfs",
   "description": "Receives requests and sends responses related to combining PDFs.",
-  "path": "convert_and_combine_pdfs.sh",
+  "path": "/Users/<replace-username>/Applications/absolute/path/to/convert_and_combine_pdfs_native_messaging.py",
   "type": "stdio",
   "allowed_origins": [
-    "chrome-extension://<YOUR EXTENSION HASH>/",
-    "chrome-extension://<YOUR EXTENSION HASH>/"
+    "chrome-extension://<YOUR EXTENSION ID>/"
   ]
 }

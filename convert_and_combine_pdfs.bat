@@ -1,3 +1,3 @@
 @echo off
 
-call python3 ./ccp_native_messaging.py
+call python3 ./convert_and_combine_pdfs_native_messaging.py
