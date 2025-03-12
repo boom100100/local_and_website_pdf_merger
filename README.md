@@ -23,23 +23,37 @@ This project won't support:
 
 ## Setup
 
-    cd projectDirectory
+    cd /Users/<set-username>/Applications
+    git clone https://github.com/boom100100/local_and_website_pdf_merger.git convert_and_combine_pdfs
+    cd convert_and_combine_pdfs
+        <!-- Optional: symbolically link it to your ideal location. -->
+
+        ln -s  /Users/<set-username>/Applications/convert_and_combine_pdfs /SET/THIS/ABSOLUTE/PATH/convert_and_combine_pdfs
+
     brew install python@3.13
     brew install python-tk
+    brew install pipenv
+    pipenv shell
+    pipenv install --python 3.13
 
     cp .env.example .env
     cp -a outputs.example outputs
 
     <!-- for macos -->
-    cp com.automatedbooks.convert_and_combine_pdfs.json.macos com.automatedbooks.convert_and_combine_pdfs.json
-    chmod 755 convert_and_combine_pdfs.sh
+        <!--
+            First, set "path" and "allowed origins" in the file com.automatedbooks.convert_and_combine_pdfs.json 
+            Then, put the file in the correct directory.
+        -->
+            cp "/Users/<set-username>/Desktop/github/convert_and_combine_pdfs/com.automatedbooks.convert_and_combine_pdfs.json.macos" "/Users/<set-username>/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.automatedbooks.convert_and_combine_pdfs.json"
+
+        chmod 755 convert_and_combine_pdfs_native_messaging.py
 
     <!-- for Windows -->
+    <!--
+        TODO: must fix this. Will need further registry treatment. 
+    -->
     cp com.automatedbooks.convert_and_combine_pdfs.json.windows com.automatedbooks.native.messaging.json
 
-    brew install pipenv
-    pipenv shell
-    pipenv install --python 3.13
 
 
 ## Development
