@@ -23,6 +23,8 @@ This project won't support:
 
 ## Setup
 
+Setup requires downloading the project and its dependencies.
+
     cd /Users/<set-username>/Applications
     git clone https://github.com/boom100100/local_and_website_pdf_merger.git convert_and_combine_pdfs
     cd convert_and_combine_pdfs
@@ -39,20 +41,17 @@ This project won't support:
     cp .env.example .env
     cp -a outputs.example outputs
 
-    <!-- for macos -->
-        <!--
-            First, set "path" and "allowed origins" in the file com.automatedbooks.convert_and_combine_pdfs.json 
-            Then, put the file in the correct directory.
-        -->
-            cp "/Users/<set-username>/Desktop/github/convert_and_combine_pdfs/com.automatedbooks.convert_and_combine_pdfs.json.macos" "/Users/<set-username>/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.automatedbooks.convert_and_combine_pdfs.json"
+### MacOs
+
+First, set "path" and "allowed origins" in the file `com.automatedbooks.convert_and_combine_pdfs.json.macos`. Then, put the file in the correct directory.
+
+        cp "/Users/<set-username>/Desktop/github/convert_and_combine_pdfs/com.automatedbooks.convert_and_combine_pdfs.json.macos" "/Users/<set-username>/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.automatedbooks.convert_and_combine_pdfs.json"
 
         chmod 755 convert_and_combine_pdfs_native_messaging.py
 
-    <!-- for Windows -->
-    <!--
-        TODO: must fix this. Will need further registry treatment. 
-    -->
-    cp com.automatedbooks.convert_and_combine_pdfs.json.windows com.automatedbooks.native.messaging.json
+### Windows
+<!-- TODO: must add this setup. Will need further registry treatment. -->
+    cp com.automatedbooks.convert_and_combine_pdfs.json.windows DEST
 
 
 
