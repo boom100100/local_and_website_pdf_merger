@@ -70,7 +70,7 @@ def get_command(system: str, options: dict) -> str:
             
             # TODO: this is a workaround. test for if nesting may break this.
             env_var_value = r"".join('"' if c == "'" else c for c in str(env_var_value)) # convert ' to "
-            env_var_value = r"".join(f'\{c}' if c in ('"', "'") else c for c in env_var_value) # escape " and '
+            env_var_value = "".join(f'\{c}' if c in ('"', "'") else c for c in env_var_value) # escape " and '
 
             # # if isinstance(env_var_value, list):
             # #     env_var_value = json.dumps(env_var_value)
@@ -208,33 +208,34 @@ while True:
         sendMessage(encodeMessage("failed launch command not constructed"))
         break
 
-    # # # res = os.system("not_a_command_xxxxxxxxxxxxxxxx")
-    # # # res = os.system("flask pdf combine")
-    # # # res = os.system(f'pipenv shell "flask pdf combine"')
-    # # # res = None
-    # # # res = os.system("pwd")
-    # # import os
-    # # # res = os.system(cli_command)
-    # # res = os.system(f'pipenv shell "{cli_command}"')
-    # result = subprocess.check_output(executable=cli_command)
-    # result = subprocess.Popen(executable=cli_command)
-    # subprocess.Popen(cli_command)
+#     # # # res = os.system("not_a_command_xxxxxxxxxxxxxxxx")
+#     # # # res = os.system("flask pdf combine")
+#     # # # res = os.system(f'pipenv shell "flask pdf combine"')
+#     # # # res = None
+#     # # # res = os.system("pwd")
+#     # # import os
+#     # # # res = os.system(cli_command)
+#     # # res = os.system(f'pipenv shell "{cli_command}"')
+#     # result = subprocess.check_output(executable=cli_command)
+#     # result = subprocess.Popen(executable=cli_command)
+#     # subprocess.Popen(cli_command)
     command = shlex.split(cli_command)
-    # process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    # stdout, stderr = process.communicate()
-    # process = subprocess.Popen(command)
-    # subprocess.Popen(cli_command, shell=True)
-    # result = subprocess.check_output(executable=f'pipenv shell "{cli_command}"')
-    # # result = subprocess.check_output(["pipenv", "shell", f'"{cli_command}"'])
-    # # """
-    # # WEBPAGE_URLS='["https://www.reddit.com/r/learnjavascript/comments/mz87ao/access_global_variables_in_content_scriptchrome/"]' OUTPUT_DIRECTORY='./outputs' flask pdf combine  -w -c 1 -n "Access global variables in content script_chrome extension_ _ r_learnjavascript resume" -o -x
-    # # import os
-    # # os.system(cli_command)
-#     """
-# WEBPAGE_URLS='["https://stackoverflow.com/questions/74836530/in-a-chrome-extension-cant-send-a-message-from-the-content-script-to-the-backg"]' OUTPUT_DIRECTORY='./outputs' flask pdf combine  -w -c 1 -n "javascript _ In a chrome extension_ can_t send a message from the content script to the background script and get a response _ Stack Overflow resume" -o -x"
-#     """
+    # process = subprocess.run(command)
+#     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#     stdout, stderr = process.communicate()
+#     # process = subprocess.Popen(command)
+#     # subprocess.Popen(cli_command, shell=True)
+#     # result = subprocess.check_output(executable=f'pipenv shell "{cli_command}"')
+#     # # result = subprocess.check_output(["pipenv", "shell", f'"{cli_command}"'])
+#     # # """
+#     # # WEBPAGE_URLS='["https://www.reddit.com/r/learnjavascript/comments/mz87ao/access_global_variables_in_content_scriptchrome/"]' OUTPUT_DIRECTORY='./outputs' flask pdf combine  -w -c 1 -n "Access global variables in content script_chrome extension_ _ r_learnjavascript resume" -o -x
+#     # # import os
+#     # # os.system(cli_command)
+# #     """
+# # WEBPAGE_URLS='["https://stackoverflow.com/questions/74836530/in-a-chrome-extension-cant-send-a-message-from-the-content-script-to-the-backg"]' OUTPUT_DIRECTORY='./outputs' flask pdf combine  -w -c 1 -n "javascript _ In a chrome extension_ can_t send a message from the content script to the background script and get a response _ Stack Overflow resume" -o -x"
+# #     """
 
-    # # """
+#     # # """
 
 
 
