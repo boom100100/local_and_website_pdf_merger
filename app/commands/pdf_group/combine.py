@@ -18,7 +18,7 @@ from app.services import Document, Pdf
     '--output-directory',
     default=os.environ.get("OUTPUT_DIRECTORY", "./outputs"),
     help="""The destination directory for the combined and downloaded PDFs.
-Set the environmental variable OUTPUT_DIRECTORY or supply an argument via the flag."""
+Set the environmental variable OUTPUT_DIRECTORY or supply an argument via the flag. The flag overrides the environment variable."""
 ) 
 @click.option(
     '-l',
@@ -56,11 +56,11 @@ Example: $ WEBPAGE_URLS='["https://www.google.com"]' flask pdf combine -w
     is_flag=True,
     help="Delete downloaded PDFs. If also activated, the open (-o, --should-open-output-file) flag overrides this when 1 webpage and 0 local PDFs are selected to be combined."
 )
-@click.option(
-    '-sl',
-    is_flag=True,
-    help="Save local file paths." # TODO: is this neecssary?
-)
+# @click.option(
+#     '-sl',
+#     is_flag=True,
+#     help="Save local file paths." # TODO: is this neecssary?
+# )
 @click.argument('webpage_urls', nargs=-1)
 def combine_pdfs(
     count: int,
@@ -70,10 +70,10 @@ def combine_pdfs(
     output_file_name_without_extension: str,
     should_open_output_file: bool,
     delete_downloaded_files: bool,
-    webpage_urls: tuple[str, ...],
+    webpage_urls: tuple[str, ...], # TODO: not sure this type can be a tuple instead of list.
+    # sl: bool,
 ) -> None:
     # TODO: enable reordering. All existing will always be before all webpage downloads.
-
     if should_use_local_file_paths:
         existing_file_paths = json.loads(os.environ['LOCAL_FILE_PATHS'])
     else:
@@ -82,7 +82,7 @@ def combine_pdfs(
         )
 
     if should_use_webpage_urls:
-        webpage_urls = json.loads(os.environ['WEBPAGE_URLS'])
+        webpage_urls = tuple(json.loads(os.environ['WEBPAGE_URLS']))
 
     Pdf(
         existing_file_paths,
