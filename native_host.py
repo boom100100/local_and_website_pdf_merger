@@ -39,8 +39,8 @@ while True:
     process = subprocess.Popen(
         [
             "/Users/bernadette/.local/share/virtualenvs/convert_and_combine_pdfs-mqF7aRtH/bin/python3",
-            "/Users/bernadette/Applications/convert_and_combine_pdfs/some_script.py",
-            # "./some_script.py", # also works
+            f"/Users/bernadette/Applications/convert_and_combine_pdfs/invoke_combine_pdfs.py",
+            # "./invoke_combine_pdfs.py", # also works
             # TODO: it's obviously not necessary to constantly pass these values to json.dumps and json.loads, but I'm going to leave it in as a reminder of the nature of network data. I think that's fine, since this initial app isn't meant to send massive amounts of webpage url data and since it won't run on a remote/paid server.
             json.dumps(receivedMessage),
         ],

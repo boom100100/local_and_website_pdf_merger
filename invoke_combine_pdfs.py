@@ -43,7 +43,6 @@ def main():
     )
     should_open_output_file = data.get("-o", True)
     delete_downloaded_files = data.get("-x", True)
-    webpage_urls = tuple()
 
     click_context = click.Context(combine_pdfs)
     click_context.invoke(
@@ -55,7 +54,7 @@ def main():
         output_file_name_without_extension=output_file_name_without_extension,
         should_open_output_file=should_open_output_file,
         delete_downloaded_files=delete_downloaded_files,
-        webpage_urls=webpage_urls,
+        webpage_urls=[],
     )
 
 
