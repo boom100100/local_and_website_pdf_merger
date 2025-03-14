@@ -3,7 +3,6 @@
 """Convert and Combine PDFs Native Messaging."""
 
 from enum import Enum
-import shlex
 import subprocess
 import sys
 import json
@@ -112,7 +111,7 @@ def get_option_flag_string(flag: str, receivedMessage: dict, should_wrap: bool, 
     VALUE = receivedMessage.get(flag)
     if VALUE:
         sanitized_value = sanitize_value(VALUE) if should_sanitize else VALUE
-        sanitized_wrapped_value = f'"{sanitized_value}"' if should_wrap else sanitized_value
+        sanitized_wrapped_value = rf'\"{sanitized_value}\"' if should_wrap else sanitized_value
         return f'{flag} {sanitized_wrapped_value}'
     return ""
         
@@ -143,7 +142,7 @@ def sendMessage(encodedMessage):
 
 while True:
     receivedMessage: dict = getMessage()
-    print(receivedMessage)
+    # print(receivedMessage)
 
     # TODO: add security checks for these receivedMessage input values
     env_vars: dict = receivedMessage.get("env_vars", {})
@@ -207,45 +206,35 @@ while True:
     if not cli_command:
         sendMessage(encodeMessage("failed launch command not constructed"))
         break
-
-#     # # # res = os.system("not_a_command_xxxxxxxxxxxxxxxx")
-#     # # # res = os.system("flask pdf combine")
-#     # # # res = os.system(f'pipenv shell "flask pdf combine"')
-#     # # # res = None
-#     # # # res = os.system("pwd")
-#     # # import os
-#     # # # res = os.system(cli_command)
-#     # # res = os.system(f'pipenv shell "{cli_command}"')
-#     # result = subprocess.check_output(executable=cli_command)
-#     # result = subprocess.Popen(executable=cli_command)
-#     # subprocess.Popen(cli_command)
-    command = shlex.split(cli_command)
-    # process = subprocess.run(command)
-#     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-#     stdout, stderr = process.communicate()
-#     # process = subprocess.Popen(command)
-#     # subprocess.Popen(cli_command, shell=True)
-#     # result = subprocess.check_output(executable=f'pipenv shell "{cli_command}"')
-#     # # result = subprocess.check_output(["pipenv", "shell", f'"{cli_command}"'])
-#     # # """
-#     # # WEBPAGE_URLS='["https://www.reddit.com/r/learnjavascript/comments/mz87ao/access_global_variables_in_content_scriptchrome/"]' OUTPUT_DIRECTORY='./outputs' flask pdf combine  -w -c 1 -n "Access global variables in content script_chrome extension_ _ r_learnjavascript resume" -o -x
-#     # # import os
-#     # # os.system(cli_command)
-# #     """
-# # WEBPAGE_URLS='["https://stackoverflow.com/questions/74836530/in-a-chrome-extension-cant-send-a-message-from-the-content-script-to-the-backg"]' OUTPUT_DIRECTORY='./outputs' flask pdf combine  -w -c 1 -n "javascript _ In a chrome extension_ can_t send a message from the content script to the background script and get a response _ Stack Overflow resume" -o -x"
-# #     """
-
-#     # # """
+    process = subprocess.Popen(
+        [
+            "/Users/bernadette/.local/share/virtualenvs/convert_and_combine_pdfs-mqF7aRtH/bin/python3",
+            "/Users/bernadette/Applications/convert_and_combine_pdfs/some_script.py",
+            f"{json.dumps(receivedMessage)}"
+            # "./some_script.py", # also works
+        ],
+        stdout=subprocess.PIPE
+    )
+    stdout, stderr = process.communicate(timeout=20)
+    
 
 
 
     # TODO: What to send back?
     sendMessage(encodeMessage({
         "cli_cmd": cli_command,
-        "cmd": command, 
+        # "cmd": command, 
         "code": 200,
-        # "stdout": stdout,
-        # "stderr": stderr,
+        "res": None,
+        # "res": res,
+        # "executable_paths": os.environ.get("PATH")
+        "stdout": stdout.decode(),
+        "stderr": stderr.decode(),
     }))
+
+
+
+
+
     # sendMessage(encodeMessage(f"{WEBPAGE_URLS_str}\n\n{cli_command}"))
     # sendMessage(encodeMessage("success 200 resume path? output path?"))
