@@ -11,7 +11,7 @@ class Pdf:
     def __init__(
         self,
         existing_file_paths: list[str],
-        webpage_urls: tuple[str, ...],
+        webpage_urls: list[str],
         output_file_name_without_extension: str, 
         output_directory: str,
         should_open_output_file: bool,
