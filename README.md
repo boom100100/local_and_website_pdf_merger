@@ -17,7 +17,7 @@ This project won't support:
 - Selecting individual pages or changing their order.
 - Fixing site-specific idiosyncracies.
   - YMMV with the captcha handling.
-  - A site may have built-in redirects before the printer prompt opens [ex. print this Indeed page](https://www.indeed.com/jobs?q=sm&l=New+York%2C+NY&from=searchOnHP&vjk=0bf7023a2547e8c8).
+  - Handling built-in redirects a site may have set up before the printer prompt opens [ex. print this Indeed page](https://www.indeed.com/jobs?q=sm&l=New+York%2C+NY&from=searchOnHP&vjk=0bf7023a2547e8c8).
   - iframes (not formally tested).
   - Reformatting/excluded content in the printed PDF.
 
@@ -25,34 +25,65 @@ This project won't support:
 
 Setup requires downloading the project and its dependencies.
 
-    cd /Users/<set-username>/Applications
-    git clone https://github.com/boom100100/local_and_website_pdf_merger.git convert_and_combine_pdfs
-    cd convert_and_combine_pdfs
-        <!-- Optional: symbolically link it to your ideal location. -->
-
-        ln -s  /Users/<set-username>/Applications/convert_and_combine_pdfs /SET/THIS/ABSOLUTE/PATH/convert_and_combine_pdfs
+### MacOs
+Install dependencies:
 
     brew install python@3.13
     brew install python-tk
     brew install pipenv
-    pipenv shell
-    pipenv install --python 3.13
 
+Get the app:
+
+    cd /Users/<set-username>/Applications
+    git clone https://github.com/boom100100/local_and_website_pdf_merger.git convert_and_combine_pdfs
+
+Configure the app:
+
+    cd convert_and_combine_pdfs
     cp .env.example .env
     cp -a outputs.example outputs
 
-### MacOs
+        <!-- Optional: symbolically link it to your ideal location. -->
+
+        ln -s  /Users/<set-username>/Applications/convert_and_combine_pdfs /SET/THIS/ABSOLUTE/PATH/convert_and_combine_pdfs
+
+    pipenv shell
+    pipenv install --python 3.13
 
 First, set "path" and "allowed origins" in the file `com.automatedbooks.convert_and_combine_pdfs.json.macos`. Then, put the file in the correct directory.
 
-        cp "/Users/<set-username>/Desktop/github/convert_and_combine_pdfs/com.automatedbooks.convert_and_combine_pdfs.json.macos" "/Users/<set-username>/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.automatedbooks.convert_and_combine_pdfs.json"
+        cp "/Users/<set-username>/Applications/convert_and_combine_pdfs/com.automatedbooks.convert_and_combine_pdfs.json.macos" "/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.automatedbooks.convert_and_combine_pdfs.json"
 
         chmod 755 convert_and_combine_pdfs_native_messaging.py
 
 ### Windows
-<!-- TODO: must add this setup. Will need further registry treatment. -->
-    cp com.automatedbooks.convert_and_combine_pdfs.json.windows DEST
+<!-- TODO: must test this setup. -->
+Install dependencies:
 
+- [python 3.13.2](https://www.python.org/downloads/windows/). The Tkinter dependency [should come included](https://tkdocs.com/tutorial/install.html#installwin) in the python installation.
+- pipenv
+
+    pip install pipenv
+
+Get the app:
+
+    cd "C:\\Program Files"
+    git clone https://github.com/boom100100/local_and_website_pdf_merger.git convert_and_combine_pdfs
+    cd convert_and_combine_pdfs
+
+Configure the app:
+
+    cp .env.example .env
+    cp -a outputs.example outputs
+
+First, set "allowed origins" in the file `com.automatedbooks.convert_and_combine_pdfs.json.windows`.
+
+    cp convert_and_combine_pdfs.json.windows convert_and_combine_pdfs.json
+
+    REG ADD "HKCU\Software\Google\Chrome\NativeMessagingHosts\com.automatedbooks.convert_and_combine_pdfs" /ve /t REG_SZ /d "C:\Program Files\convert_and_combine_pdfs\com.automatedbooks.convert_and_combine_pdfs.json" /f
+
+    pipenv shell
+    pipenv install --python 3.13
 
 
 ## Development
