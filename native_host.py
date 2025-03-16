@@ -51,13 +51,10 @@ while True:
 
     # TODO: What to send back?
         # saved file name.
-        # everything else in request should be browser settings (for the chrome extension)
+        # everything else in request should be browser settings (from the chrome extension)
     sendMessage(encodeMessage({
-        # "cli_cmd": cli_command,
-        # "cmd": command, 
         "code": 200,
         "res": None,
-        # "res": res,
         # "executable_paths": os.environ.get("PATH")
         "stdout": stdout.decode(),
         "stderr": stderr.decode(),
