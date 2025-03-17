@@ -9,14 +9,14 @@ DIR="$( cd "$( dirname "$0" )" && pwd )"
 if [ $(uname -s) == 'Darwin' ]; then
   if [ "$(whoami)" == "root" ]; then
     TARGET_DIR="/Library/Google/Chrome/NativeMessagingHosts"
-    chmod a+x "$DIR/native-messaging-example-host"
+    # chmod a+x "$DIR/native-messaging-example-host"
   else
     TARGET_DIR="$HOME/Library/Application Support/Google/Chrome/NativeMessagingHosts"
   fi
 else
   if [ "$(whoami)" == "root" ]; then
     TARGET_DIR="/etc/opt/chrome/native-messaging-hosts"
-    chmod a+x "$DIR/native-messaging-example-host"
+    # chmod a+x "$DIR/native-messaging-example-host"
   else
     TARGET_DIR="$HOME/.config/google-chrome/NativeMessagingHosts"
   fi
@@ -27,8 +27,9 @@ HOST_NAME=com.automatedbooks.convert_and_combine_pdfs
 # Create directory to store native messaging host.
 mkdir -p "$TARGET_DIR"
 
-# Substitute directory with absolute path
+# Substitute directory specified in the path value with an absolute path
 echo -e $(sed -e "s|pwd|$PWD|" "com.automatedbooks.convert_and_combine_pdfs.json.macos") > "com.automatedbooks.convert_and_combine_pdfs.json.macos"
+
 # Move macos manifest to .json
 mv "$DIR/$HOST_NAME.json.macos" "$TARGET_DIR/$HOST_NAME.json"
 
@@ -45,6 +46,9 @@ chmod o+r "$TARGET_DIR/$HOST_NAME.json"
 
 # trigger chrome extension installation
 mkdir "$HOME/Library/Application Support/Google/Chrome/External Extensions"
-echo -e '{\n"external_update_url": "https://clients2.google.com/service/update2/crx"\n}' >> "$HOME/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
+echo -e '{\n"external_update_url": "https://chrome.google.com/webstore/download/diefpbmcaopdlphclenlgfcmeafacojg/revision/00001/package/main/crx/3"\n}' >> "$HOME/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
+
+# make native messaging app executable
+chmod 755 convert_and_combine_pdfs_native_messaging.py
 
 echo Native messaging host $HOST_NAME has been installed.

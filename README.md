@@ -51,11 +51,10 @@ Configure the app:
     pipenv shell
     pipenv install --python 3.13
 
-First, set "path" and "allowed origins" in the file `com.automatedbooks.convert_and_combine_pdfs.json.macos`. Then, put the file in the correct directory.
+Configure the native host (if using Google Chrome extension ATS Beater):
 
-        cp "/Users/<set-username>/Applications/convert_and_combine_pdfs/com.automatedbooks.convert_and_combine_pdfs.json.macos" "/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.automatedbooks.convert_and_combine_pdfs.json"
-
-        chmod 755 convert_and_combine_pdfs_native_messaging.py
+        chmod 755 install_host.sh
+        ./install_host.sh
 
 ### Windows
 <!-- TODO: must test this setup. -->
@@ -77,14 +76,16 @@ Configure the app:
     cp .env.example .env
     cp -a outputs.example outputs
 
-First, set "allowed origins" in the file `com.automatedbooks.convert_and_combine_pdfs.json.windows`.
+    mkdir .venv
+    pipenv shell
+    pipenv install --python 3.13
+
+Configure the native host (if using Google Chrome extension ATS Beater):
 
     cp convert_and_combine_pdfs.json.windows convert_and_combine_pdfs.json
 
     REG ADD "HKCU\Software\Google\Chrome\NativeMessagingHosts\com.automatedbooks.convert_and_combine_pdfs" /ve /t REG_SZ /d "C:\Program Files\convert_and_combine_pdfs\com.automatedbooks.convert_and_combine_pdfs.json" /f
 
-    pipenv shell
-    pipenv install --python 3.13
 
 
 ## Development
