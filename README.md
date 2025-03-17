@@ -47,6 +47,7 @@ Configure the app:
 
         ln -s  /Users/<set-username>/Applications/convert_and_combine_pdfs /SET/THIS/ABSOLUTE/PATH/convert_and_combine_pdfs
 
+    mkdir .venv
     pipenv shell
     pipenv install --python 3.13
 
