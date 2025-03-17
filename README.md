@@ -23,7 +23,7 @@ This project won't support:
 
 ## Setup
 
-Setup requires downloading the project and its dependencies.
+Setup requires downloading the project and its dependencies. For now, this must be done manually, but installers are forthcoming!
 
 ### MacOs
 Install dependencies:
