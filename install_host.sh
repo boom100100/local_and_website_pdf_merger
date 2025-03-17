@@ -49,6 +49,6 @@ mkdir "$HOME/Library/Application Support/Google/Chrome/External Extensions"
 echo -e '{\n"external_update_url": "https://chrome.google.com/webstore/download/diefpbmcaopdlphclenlgfcmeafacojg/revision/00001/package/main/crx/3"\n}' >> "$HOME/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
 
 # make native messaging app executable
-chmod 755 convert_and_combine_pdfs_native_messaging.py
+chmod 755 native_host.py
 
 echo Native messaging host $HOST_NAME has been installed.
