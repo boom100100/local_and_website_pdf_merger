@@ -86,7 +86,7 @@ def combine_pdfs(
         webpage_urls = json.loads(os.environ['WEBPAGE_URLS'])
 
     if not output_directory:
-        os.environ.get("OUTPUT_DIRECTORY", "./outputs")
+        output_directory = os.environ.get("OUTPUT_DIRECTORY", "./outputs")
 
     Pdf(
         existing_file_paths,
