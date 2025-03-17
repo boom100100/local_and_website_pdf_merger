@@ -57,11 +57,6 @@ Example: $ WEBPAGE_URLS='["https://www.google.com"]' flask pdf combine -w
     is_flag=True,
     help="Delete downloaded PDFs. If also activated, the open (-o, --should-open-output-file) flag overrides this when 1 webpage and 0 local PDFs are selected to be combined."
 )
-# @click.option(
-#     '-sf',
-#     is_flag=True,
-#     help="Save local file paths." # TODO: is this neecssary?
-# )
 @click.argument('webpage_urls', nargs=-1)
 def combine_pdfs(
     count: int,
@@ -72,7 +67,6 @@ def combine_pdfs(
     should_open_output_file: bool,
     delete_downloaded_files: bool,
     webpage_urls: list[str],
-    # sf: bool,
 ) -> None:
     # TODO: enable reordering. All existing will always be before all webpage downloads.
     if should_use_local_file_paths:
