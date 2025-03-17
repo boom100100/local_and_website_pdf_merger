@@ -4,6 +4,6 @@
   "path": "/Users/<replace-username>/Applications/absolute/path/to/native_host.py",
   "type": "stdio",
   "allowed_origins": [
-    "chrome-extension://<YOUR EXTENSION ID>/"
+    "chrome-extension://diefpbmcaopdlphclenlgfcmeafacojg/"
   ]
 }
