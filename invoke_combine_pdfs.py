@@ -22,7 +22,7 @@ def main():
 
     count = data.get("-c", 0)
     output_directory = env_vars.get("OUTPUT_DIRECTORY", "./outputs") # can ignore -d flag, only one input is necessary
-    # "/Users/bernadette/Applications/convert_and_combine_pdfs/outputs"
+    # "/Users/<username>/Applications/convert_and_combine_pdfs/outputs"
 
 
     def set_os_env_var_and_should_use(key: str, default: list) -> bool:

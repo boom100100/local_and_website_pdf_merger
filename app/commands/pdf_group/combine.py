@@ -27,7 +27,7 @@ Set the environmental variable OUTPUT_DIRECTORY or supply an argument via the fl
     is_flag=True,
     help="""Identify local PDF(s) via the LOCAL_FILE_PATHS environmental variable as a json array instead of choosing them via the GUI.
 This will ignore the count (-c, --count) flag.
-Example: $ LOCAL_FILE_PATHS='["/Users/bernadette/Downloads/Bernadette Davis Professional Resume Long.pdf"]' flask pdf combine -l <optional-webpage>
+Example: $ LOCAL_FILE_PATHS='["/Users/<username>/Downloads/Resume.pdf"]' flask pdf combine -l <optional-webpage>
 """
 ) 
 @click.option(
