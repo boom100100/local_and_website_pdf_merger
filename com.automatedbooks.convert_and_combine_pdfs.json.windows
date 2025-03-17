@@ -1,0 +1,9 @@
+{
+  "name": "com.automatedbooks.convert_and_combine_pdfs",
+  "description": "Receives requests and sends responses related to combining PDFs.",
+  "path": "native_host.bat",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://diefpbmcaopdlphclenlgfcmeafacojg/"
+  ]
+}

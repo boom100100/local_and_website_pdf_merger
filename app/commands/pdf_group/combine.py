@@ -1,3 +1,4 @@
+from typing import Optional
 import click
 import json
 import os
@@ -16,9 +17,9 @@ from app.services import Document, Pdf
 @click.option(
     '-d',
     '--output-directory',
-    default=os.environ.get("OUTPUT_DIRECTORY", "./outputs"),
+    default=None,
     help="""The destination directory for the combined and downloaded PDFs.
-Set the environmental variable OUTPUT_DIRECTORY or supply an argument via the flag."""
+Set the environmental variable OUTPUT_DIRECTORY or supply an argument via the flag. The flag value overrides the environment variable."""
 ) 
 @click.option(
     '-l',
@@ -26,7 +27,7 @@ Set the environmental variable OUTPUT_DIRECTORY or supply an argument via the fl
     is_flag=True,
     help="""Identify local PDF(s) via the LOCAL_FILE_PATHS environmental variable as a json array instead of choosing them via the GUI.
 This will ignore the count (-c, --count) flag.
-Example: $ LOCAL_FILE_PATHS='["/Users/bernadette/Downloads/Bernadette Davis Professional Resume Long.pdf"]' flask pdf combine -l <optional-webpage>
+Example: $ LOCAL_FILE_PATHS='["/Users/<username>/Downloads/Resume.pdf"]' flask pdf combine -l <optional-webpage>
 """
 ) 
 @click.option(
@@ -59,16 +60,15 @@ Example: $ WEBPAGE_URLS='["https://www.google.com"]' flask pdf combine -w
 @click.argument('webpage_urls', nargs=-1)
 def combine_pdfs(
     count: int,
-    output_directory: str,
+    output_directory: Optional[str],
     should_use_local_file_paths: bool,
     should_use_webpage_urls: bool,
     output_file_name_without_extension: str,
     should_open_output_file: bool,
     delete_downloaded_files: bool,
-    webpage_urls: tuple[str, ...],
+    webpage_urls: list[str],
 ) -> None:
     # TODO: enable reordering. All existing will always be before all webpage downloads.
-
     if should_use_local_file_paths:
         existing_file_paths = json.loads(os.environ['LOCAL_FILE_PATHS'])
     else:
@@ -78,6 +78,9 @@ def combine_pdfs(
 
     if should_use_webpage_urls:
         webpage_urls = json.loads(os.environ['WEBPAGE_URLS'])
+
+    if not output_directory:
+        output_directory = os.environ.get("OUTPUT_DIRECTORY", "./outputs")
 
     Pdf(
         existing_file_paths,

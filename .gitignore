@@ -2,4 +2,11 @@
 
 downloaded_files/
 outputs/
+.pytest_cache/
+instance/
+__pycache__/
+latest_logs/
+
+log.txt
 .env
+convert_and_combine_pdfs.json
