@@ -10,5 +10,4 @@ rm "%~dp0com.automatedbooks.convert_and_combine_pdfs.json.windows"
 REG ADD "HKCU\Software\Google\Chrome\NativeMessagingHosts\com.automatedbooks.convert_and_combine_pdfs" /ve /t REG_SZ /d "%~dp0com.automatedbooks.convert_and_combine_pdfs.json" /f
 
 # trigger chrome extension installation
-mkdir "$HOME/Library/Application Support/Google/Chrome/External Extensions"
-echo -e 'json { "external_update_url": "https://clients2.google.com/service/update2/crx" }'
+REG ADD HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist /v 1 /t REG_SZ /d diefpbmcaopdlphclenlgfcmeafacojg /f
