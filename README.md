@@ -27,16 +27,16 @@ Setup requires downloading the project and its dependencies. For now, this must 
 
 ### MacOs
 
-#### Installer
+<!-- #### Installer
 With native host:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/8cd1325f5207d51122512ec1da3029f062f3aafb/install_pdf_combiner.sh | bash -s 2
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/06a8cbd96772e6ac6398e8b4244beab49d07f1f9/install_pdf_combiner.sh | bash -s 2
 
 Without:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/8cd1325f5207d51122512ec1da3029f062f3aafb/install_pdf_combiner.sh | bash
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/06a8cbd96772e6ac6398e8b4244beab49d07f1f9/install_pdf_combiner.sh | bash
 
-#### Manually Install
+#### Manually Install -->
 
 Install dependencies:
 
