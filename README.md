@@ -26,6 +26,18 @@ This project won't support:
 Setup requires downloading the project and its dependencies. For now, this must be done manually, but installers are forthcoming!
 
 ### MacOs
+
+#### Installer
+With native host:
+
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/8cd1325f5207d51122512ec1da3029f062f3aafb/install_pdf_combiner.sh | bash -s 2
+
+Without:
+
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/8cd1325f5207d51122512ec1da3029f062f3aafb/install_pdf_combiner.sh | bash
+
+#### Manually Install
+
 Install dependencies:
 
     brew install python@3.13
@@ -59,6 +71,8 @@ Configure the native host (if using Google Chrome extension ATS Beater):
 And then restart Chrome so the extension gets installed.
 
 ### Windows
+<!-- #### Installer TODO -->
+#### Manually Install
 <!-- TODO: must test this setup. -->
 Install dependencies:
 
