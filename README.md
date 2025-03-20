@@ -56,6 +56,8 @@ Configure the native host (if using Google Chrome extension ATS Beater):
     chmod 755 install_host.sh
     ./install_host.sh
 
+And then restart Chrome so the extension gets installed.
+
 ### Windows
 <!-- TODO: must test this setup. -->
 Install dependencies:
