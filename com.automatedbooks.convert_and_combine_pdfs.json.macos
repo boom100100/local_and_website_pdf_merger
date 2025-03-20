@@ -1,9 +1,10 @@
 {
   "name": "com.automatedbooks.convert_and_combine_pdfs",
   "description": "Receives requests and sends responses related to combining PDFs.",
-  "path": "pwd/Applications/convert_and_combine_pdfs/convert_and_combine_pdfs/native_host.py",
+  "path": "pwd/native_host.py",
   "type": "stdio",
   "allowed_origins": [
+    "chrome-extension://fccgofolnpapjidppgokhjpbfkmbangp/",
     "chrome-extension://diefpbmcaopdlphclenlgfcmeafacojg/"
   ]
 }
