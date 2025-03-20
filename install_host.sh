@@ -1,7 +1,7 @@
 #!/bin/sh
 # Copyright 2013 The Chromium Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
-# found in the LICENSE file.
+# found in the LICENSE file at https://github.com/GoogleChrome/chrome-extensions-samples/blob/main/LICENSE.
 
 set -e
 
@@ -46,7 +46,7 @@ chmod o+r "$TARGET_DIR/$HOST_NAME.json"
 
 # trigger chrome extension installation
 mkdir "$HOME/Library/Application Support/Google/Chrome/External Extensions"
-echo -e '{\n"external_update_url": "https://chrome.google.com/webstore/download/diefpbmcaopdlphclenlgfcmeafacojg/revision/00001/package/main/crx/3"\n}' >> "$HOME/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
+echo -e 'json { "external_update_url": "https://clients2.google.com/service/update2/crx" }'
 
 # make native messaging app executable
 chmod 755 native_host.py
