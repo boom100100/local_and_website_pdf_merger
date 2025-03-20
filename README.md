@@ -26,6 +26,18 @@ This project won't support:
 Setup requires downloading the project and its dependencies. For now, this must be done manually, but installers are forthcoming!
 
 ### MacOs
+
+#### Installer
+With native host:
+
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/8cd1325f5207d51122512ec1da3029f062f3aafb/install_pdf_combiner.sh | bash -s 2
+
+Without:
+
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/8cd1325f5207d51122512ec1da3029f062f3aafb/install_pdf_combiner.sh | bash
+
+#### Manually Install
+
 Install dependencies:
 
     brew install python@3.13
@@ -56,7 +68,11 @@ Configure the native host (if using Google Chrome extension ATS Beater):
     chmod 755 install_host.sh
     ./install_host.sh
 
+And then restart Chrome so the extension gets installed.
+
 ### Windows
+<!-- #### Installer TODO -->
+#### Manually Install
 <!-- TODO: must test this setup. -->
 Install dependencies:
 
@@ -80,16 +96,11 @@ Configure the app:
     pipenv shell
     pipenv install --python 3.13
 
-Configure the native host and trigger chrome extension installation (if using Google Chrome extension ATS Beater):
+Configure the native host (if using Google Chrome extension ATS Beater):
 
-    cp convert_and_combine_pdfs.json.windows convert_and_combine_pdfs.json
+    install_host.bat
 
-    REG ADD "HKCU\Software\Google\Chrome\NativeMessagingHosts\com.automatedbooks.convert_and_combine_pdfs" /ve /t REG_SZ /d "C:\Program Files\convert_and_combine_pdfs\com.automatedbooks.convert_and_combine_pdfs.json" /f
-
-    <!-- mkdir HKEY_LOCAL_MACHINE\Software\Google\Chrome\Extensions\diefpbmcaopdlphclenlgfcmeafacojg
-    mkdir HKEY_LOCAL_MACHINE\Software\Wow6432Node\Google\Chrome\Extensions\diefpbmcaopdlphclenlgfcmeafacojg -->
-    <!-- mkdir "$HOME/Library/Application Support/Google/Chrome/External Extensions" -->
-    echo -e 'json { "external_update_url": "https://chrome.google.com/webstore/download/diefpbmcaopdlphclenlgfcmeafacojg/revision/00001/package/main/crx/3" }' >> "$HOME/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
+And then restart Chrome so the extension gets installed.
 
 
 ## Development

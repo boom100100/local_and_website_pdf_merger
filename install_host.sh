@@ -45,8 +45,8 @@ sed -i -e "s/HOST_PATH/$ESCAPED_HOST_PATH/" "$TARGET_DIR/$HOST_NAME.json"
 chmod o+r "$TARGET_DIR/$HOST_NAME.json"
 
 # trigger chrome extension installation
-mkdir "$HOME/Library/Application Support/Google/Chrome/External Extensions"
-echo -e 'json { "external_update_url": "https://clients2.google.com/service/update2/crx" }'
+chmod 755 ./install_chrome_extension.sh
+./install_chrome_extension.sh diefpbmcaopdlphclenlgfcmeafacojg
 
 # make native messaging app executable
 chmod 755 native_host.py
