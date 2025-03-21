@@ -70,8 +70,6 @@ Configure the native host (if using Google Chrome extension ATS Beater):
 
 And then restart Chrome so the extension gets installed.
 
-sudo rm "/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
-
 ### Windows
 <!-- #### Installer TODO -->
 #### Manually Install
@@ -138,6 +136,13 @@ CLI commands live in `app/commands`. Call them from the project root directory w
 
 
 ## Troubleshooting
+
+### Extension Auto-Installation Breaks PDF Download
+If the app, native host, and extension all appear to install correctly, but the app fails to download the PDF, then the extension is interfering with the PDF download tool. Remove the extension with the commands below. Then restart chrome and manually install the extension from the [ATS Beater chrome extension webpage](https://chromewebstore.google.com/detail/ats-beater/diefpbmcaopdlphclenlgfcmeafacojg) instead.
+
+    sudo rm "/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
+    sudo rm "$HOME/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
+
 
 ### Shell Doesn't Recognize Dependencies
 
