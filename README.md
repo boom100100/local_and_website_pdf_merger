@@ -30,11 +30,11 @@ Setup requires downloading the project and its dependencies. For now, this must 
 <!-- #### Installer
 With native host:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/5a862b4ea49b15c47cf45a113e8ea156d31d27a5/install_pdf_combiner.sh | bash -s 2
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/1644906cc689d9b6d45375ec62666d0200f666a0/install_pdf_combiner.sh | bash -s 2
 
 Without:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/5a862b4ea49b15c47cf45a113e8ea156d31d27a5/install_pdf_combiner.sh | bash
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/1644906cc689d9b6d45375ec62666d0200f666a0/install_pdf_combiner.sh | bash
 
 #### Manually Install -->
 
