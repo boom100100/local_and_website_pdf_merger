@@ -45,7 +45,7 @@ while True:
         ],
         stdout=subprocess.PIPE
     )
-    stdout, stderr = process.communicate(timeout=20)
+    stdout, stderr = process.communicate()
 
 
     # TODO: What to send back?

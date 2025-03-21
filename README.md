@@ -30,11 +30,11 @@ Setup requires downloading the project and its dependencies. For now, this must 
 <!-- #### Installer
 With native host:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/06a8cbd96772e6ac6398e8b4244beab49d07f1f9/install_pdf_combiner.sh | bash -s 2
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/5a862b4ea49b15c47cf45a113e8ea156d31d27a5/install_pdf_combiner.sh | bash -s 2
 
 Without:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/06a8cbd96772e6ac6398e8b4244beab49d07f1f9/install_pdf_combiner.sh | bash
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/5a862b4ea49b15c47cf45a113e8ea156d31d27a5/install_pdf_combiner.sh | bash
 
 #### Manually Install -->
 
@@ -69,6 +69,8 @@ Configure the native host (if using Google Chrome extension ATS Beater):
     ./install_host.sh
 
 And then restart Chrome so the extension gets installed.
+
+sudo rm "/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
 
 ### Windows
 <!-- #### Installer TODO -->
