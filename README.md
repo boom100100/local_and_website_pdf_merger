@@ -30,11 +30,11 @@ Setup requires downloading the project and its dependencies. For now, this must 
 <!-- #### Installer
 With native host:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/1644906cc689d9b6d45375ec62666d0200f666a0/install_pdf_combiner.sh | bash -s 2
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/e894d4db0c6c259eafe8ce7b5a12942461127808/install_pdf_combiner.sh | bash -s 2
 
 Without:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/1644906cc689d9b6d45375ec62666d0200f666a0/install_pdf_combiner.sh | bash
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/e894d4db0c6c259eafe8ce7b5a12942461127808/install_pdf_combiner.sh | bash
 
 #### Manually Install -->
 
@@ -68,7 +68,8 @@ Configure the native host (if using Google Chrome extension ATS Beater):
     chmod 755 install_host.sh
     ./install_host.sh
 
-And then restart Chrome so the extension gets installed.
+Now, restart Chrome so the extension gets installed. 
+<!-- Then, restart the computer. -->
 
 ### Windows
 <!-- #### Installer TODO -->
@@ -142,6 +143,10 @@ If the app, native host, and extension all appear to install correctly, but the 
 
     sudo rm "/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
     sudo rm "$HOME/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
+
+### Json file with wrong extension
+
+    sudo rm "/Library/Google/Chrome/NativeMessagingHosts/com.automatedbooks.convert_and_combine_pdfs.json-e"
 
 
 ### Shell Doesn't Recognize Dependencies
