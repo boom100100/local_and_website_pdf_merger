@@ -5,14 +5,15 @@
 
 set -e
 
-DIR="$( cd "$( dirname "$0" )" && pwd )"
+DIR="$1"
 if [ $(uname -s) == 'Darwin' ]; then
-  if [ "$(whoami)" == "root" ]; then
     TARGET_DIR="/Library/Google/Chrome/NativeMessagingHosts"
-    # chmod a+x "$DIR/native-messaging-example-host"
-  else
-    TARGET_DIR="$HOME/Library/Application Support/Google/Chrome/NativeMessagingHosts"
-  fi
+  # if [ "$(whoami)" == "root" ]; then
+    # TARGET_DIR="/Library/Google/Chrome/NativeMessagingHosts"
+  #   # chmod a+x "$DIR/native-messaging-example-host"
+  # else
+  #   TARGET_DIR="$HOME/Library/Application Support/Google/Chrome/NativeMessagingHosts"
+  # fi
 else
   if [ "$(whoami)" == "root" ]; then
     TARGET_DIR="/etc/opt/chrome/native-messaging-hosts"
@@ -31,15 +32,13 @@ mkdir -p "$TARGET_DIR"
 echo -e $(sed -e "s|pwd|$PWD|" "com.automatedbooks.convert_and_combine_pdfs.json.macos") > "com.automatedbooks.convert_and_combine_pdfs.json.macos"
 
 # Move macos manifest to .json
-mv "$DIR/$HOST_NAME.json.macos" "$TARGET_DIR/$HOST_NAME.json"
-
-# Copy native messaging host manifest.
-cp "$DIR/$HOST_NAME.json" "$TARGET_DIR"
+sudo mv "$DIR/$HOST_NAME.json.macos" "$TARGET_DIR/$HOST_NAME.json"
 
 # Update host path in the manifest.
 HOST_PATH="$DIR"
 ESCAPED_HOST_PATH=${HOST_PATH////\\/}
-sed -i -e "s/HOST_PATH/$ESCAPED_HOST_PATH/" "$TARGET_DIR/$HOST_NAME.json"
+sudo sed -i -e "s/HOST_PATH/$ESCAPED_HOST_PATH/" "$TARGET_DIR/$HOST_NAME.json"
+sudo rm "$TARGET_DIR/com.automatedbooks.convert_and_combine_pdfs.json-e" # todo: fix this file name error
 
 # Set permissions for the manifest so that all users can read it.
 chmod o+r "$TARGET_DIR/$HOST_NAME.json"

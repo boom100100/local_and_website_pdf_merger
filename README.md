@@ -31,6 +31,7 @@ Setup requires downloading the project and its dependencies.
 Install with the native messaging host (if using Google Chrome extension ATS Beater):
 
     curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/e894d4db0c6c259eafe8ce7b5a12942461127808/install_pdf_combiner.sh | bash -s 2
+    <!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
 
 After running this command, restart Chrome and select the option to activate the extension.
 
@@ -64,8 +65,9 @@ Configure the app:
     mkdir .venv
     pipenv shell
     pipenv install --python 3.13
+    sbase get uc_driver
 
-Configure the native host (if using Google Chrome extension ATS Beater):
+Configure the native host (configure this to use the Google Chrome extension ATS Beater):
 
     chmod 755 install_host.sh
     ./install_host.sh
@@ -73,7 +75,7 @@ Configure the native host (if using Google Chrome extension ATS Beater):
 Now, restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
 
 ### Windows
-For Windows, manual and installer setup is within scope for future development (but development start date undetermined).
+For Windows, manual validation and installer setup is within scope for future development (but development start date undetermined).
 <!-- #### Installer TODO -->
 #### Manually Install
 <!-- TODO: must test this setup. -->
@@ -101,7 +103,7 @@ Configure the app:
     pipenv install --python 3.13
     sbase get uc_driver
 
-Configure the native host (if using Google Chrome extension ATS Beater):
+Configure the native host (configure this to use the Google Chrome extension ATS Beater):
 
     install_host.bat
 
