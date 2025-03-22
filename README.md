@@ -23,20 +23,22 @@ This project won't support:
 
 ## Setup
 
-Setup requires downloading the project and its dependencies. For now, this must be done manually, but installers are forthcoming!
+Setup requires downloading the project and its dependencies.
 
 ### MacOs
 
-<!-- #### Installer
-With native host:
+#### Installer
+Install with the native messaging host (if using Google Chrome extension ATS Beater):
 
     curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/e894d4db0c6c259eafe8ce7b5a12942461127808/install_pdf_combiner.sh | bash -s 2
 
-Without:
+After running this command, restart Chrome and select the option to activate the extension.
+
+Install without the native messaging host:
 
     curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/e894d4db0c6c259eafe8ce7b5a12942461127808/install_pdf_combiner.sh | bash
 
-#### Manually Install -->
+#### Manually Install
 
 Install dependencies:
 
@@ -46,7 +48,7 @@ Install dependencies:
 
 Get the app:
 
-    cd /Users/<set-username>/Applications
+    cd ~/Applications
     git clone https://github.com/boom100100/local_and_website_pdf_merger.git convert_and_combine_pdfs
 
 Configure the app:
@@ -57,7 +59,7 @@ Configure the app:
 
         <!-- Optional: symbolically link it to your ideal location. -->
 
-        ln -s  /Users/<set-username>/Applications/convert_and_combine_pdfs /SET/THIS/ABSOLUTE/PATH/convert_and_combine_pdfs
+        ln -s  ~/Applications/convert_and_combine_pdfs /SET/THIS/ABSOLUTE/PATH/convert_and_combine_pdfs
 
     mkdir .venv
     pipenv shell
@@ -68,16 +70,17 @@ Configure the native host (if using Google Chrome extension ATS Beater):
     chmod 755 install_host.sh
     ./install_host.sh
 
-Now, restart Chrome so the extension gets installed. 
-<!-- Then, restart the computer. -->
+Now, restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
 
 ### Windows
+For Windows, manual and installer setup is within scope for future development (but development start date undetermined).
 <!-- #### Installer TODO -->
 #### Manually Install
 <!-- TODO: must test this setup. -->
+<!-- TODO: must script this setup. -->
 Install dependencies:
 
-- [python 3.13.2](https://www.python.org/downloads/windows/). The Tkinter dependency [should come included](https://tkdocs.com/tutorial/install.html#installwin) in the python installation.
+- [python 3.13.2](https://www.python.org/downloads/release/python-3132/). The Tkinter dependency [should come included](https://tkdocs.com/tutorial/install.html#installwin) in the python installation.
 - pipenv
 
     pip install pipenv
@@ -96,41 +99,28 @@ Configure the app:
     mkdir .venv
     pipenv shell
     pipenv install --python 3.13
+    sbase get uc_driver
 
 Configure the native host (if using Google Chrome extension ATS Beater):
 
     install_host.bat
 
-And then restart Chrome so the extension gets installed.
+And then restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
 
 
 ## Development
-### Changing Dependencies
-Only run the following as needed!
+### Scope
+Development needs for this project include the following:
 
-Run
+- Writing end-to-end tests.
+- Writing Uninstallers.
+- Windows
+  - Writing installation instructions. These will live in a gist that this readme will link to in the setup instructions section.
+  - Testing installation. The installation instructions must allow a fresh install to work. And user interactivity must be limited to enabling elevated privileges and uncircumventable manual input requirements within the browser (like enabling the added Chrome extension).
+  - UA testing. The cross-platform nature of the project requires testing redundantly while Windows remains less fully developed.
 
-    pipenv install dependencyname
-
-to add a new dependency.
-
-Run
-
-    pipenv uninstall dependencyname
-
-to remove a dependency.
-
-Run
-
-    pipenv uninstall --all
-
-to get rid of everything.
-
-Run
-
-    rm Pipfile.lock
-
-to delete Pipfile.lock. 
+### Process
+TBD. For now, open a pull request and tag @boom100100.
 
 ## Run
 CLI commands live in `app/commands`. Call them from the project root directory with the following structure: `flask <app_group_name> <command_name> <flag1> <flag1_arg> <arg1> <arg2> <arg_n>`, e.g. `flask pdf combine -c 2 "https://google.com" "https://google.com/maps" "https://google.com/images"`. Use the `--help` flag to learn about a command's specific options.
@@ -138,11 +128,8 @@ CLI commands live in `app/commands`. Call them from the project root directory w
 
 ## Troubleshooting
 
-### Extension Auto-Installation Breaks PDF Download
-If the app, native host, and extension all appear to install correctly, but the app fails to download the PDF, then the extension is interfering with the PDF download tool. Remove the extension with the commands below. Then restart chrome and manually install the extension from the [ATS Beater chrome extension webpage](https://chromewebstore.google.com/detail/ats-beater/diefpbmcaopdlphclenlgfcmeafacojg) instead.
-
-    sudo rm "/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
-    sudo rm "$HOME/Library/Application Support/Google/Chrome/External Extensions/diefpbmcaopdlphclenlgfcmeafacojg.json"
+### Webpage Won't Download
+If the app, native host, and extension all appear to install correctly, but the app fails at the step of downloading the webpage as a PDF, then make sure `.env` has the environmental variable `SE_CHROMEDRIVER`.
 
 ### Json file with wrong extension
 
