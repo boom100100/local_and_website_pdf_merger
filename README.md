@@ -64,8 +64,9 @@ Configure the app:
     mkdir .venv
     pipenv shell
     pipenv install --python 3.13
+    sbase get uc_driver
 
-Configure the native host (if using Google Chrome extension ATS Beater):
+Configure the native host (configure this to use the Google Chrome extension ATS Beater):
 
     chmod 755 install_host.sh
     ./install_host.sh
@@ -73,7 +74,7 @@ Configure the native host (if using Google Chrome extension ATS Beater):
 Now, restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
 
 ### Windows
-For Windows, manual and installer setup is within scope for future development (but development start date undetermined).
+For Windows, manual validation and installer setup is within scope for future development (but development start date undetermined).
 <!-- #### Installer TODO -->
 #### Manually Install
 <!-- TODO: must test this setup. -->
@@ -101,7 +102,7 @@ Configure the app:
     pipenv install --python 3.13
     sbase get uc_driver
 
-Configure the native host (if using Google Chrome extension ATS Beater):
+Configure the native host (configure this to use the Google Chrome extension ATS Beater):
 
     install_host.bat
 
