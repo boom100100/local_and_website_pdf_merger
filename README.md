@@ -31,6 +31,7 @@ Setup requires downloading the project and its dependencies.
 Install with the native messaging host (if using Google Chrome extension ATS Beater):
 
     curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/e894d4db0c6c259eafe8ce7b5a12942461127808/install_pdf_combiner.sh | bash -s 2
+    <!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
 
 After running this command, restart Chrome and select the option to activate the extension.
 
