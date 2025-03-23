@@ -26,18 +26,18 @@ This project won't support:
 Setup requires downloading the project and its dependencies.
 
 ### MacOs Install Script
-Install with the native messaging host (if using Google Chrome extension ATS Beater):
+Only run one of the two commands. Enter the sign-in password when prompted.
+
+Install the standalone CLI app:
+
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/6ea8a1158d51cd2bb4acce9aa350987635df4ea4/install_pdf_combiner.sh | bash
+
+Install with the native messaging host (if using the Google Chrome extension ATS Beater):
 
     curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/6ea8a1158d51cd2bb4acce9aa350987635df4ea4/install_pdf_combiner.sh | bash -s 2
     <!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
 
-Enter the password when prompted. After running this command, restart Chrome and select the option to activate the extension.
-
-Install without the native messaging host:
-
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/6ea8a1158d51cd2bb4acce9aa350987635df4ea4/install_pdf_combiner.sh | bash
-
-Enter the password when prompted. And then restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
+After this second command finishes running, restart Chrome. Then, select the option to activate the extension from the browser.
 
 
 ### Windows
