@@ -91,7 +91,11 @@ Development needs for this project include the following:
 TBD. For now, open a pull request and tag @boom100100.
 
 ## Run
-CLI commands live in `app/commands`. Call them from the project root directory with the following structure: `flask <app_group_name> <command_name> <flag1> <flag1_arg> <arg1> <arg2> <arg_n>`, e.g. `flask pdf combine -c 2 "https://google.com" "https://google.com/maps" "https://google.com/images"`. Use the `--help` flag to learn about a command's specific options.
+For using the CLI, run `pipenv shell` in the project root directory. All CLI commands must run from that shell.
+
+The CLI commands live in `app/commands`. Call them from the project root directory with the following structure: `flask <app_group_name> <command_name> <flag1> <flag1_arg> <arg1> <arg2> <arg_n>`, e.g. `flask pdf combine -c 2 "https://google.com" "https://google.com/maps" "https://google.com/images"`. 
+
+Use the `--help` flag to learn about a command's specific options, e.g. `flask pdf combine --help`.
 
 
 ## Troubleshooting
