@@ -25,55 +25,23 @@ This project won't support:
 
 Setup requires downloading the project and its dependencies.
 
-### MacOs
+### MacOs Install Script
+Only run one of the two commands. Enter the sign-in password when prompted.
 
-#### Installer
-Install with the native messaging host (if using Google Chrome extension ATS Beater):
+Install the standalone CLI app:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/e894d4db0c6c259eafe8ce7b5a12942461127808/install_pdf_combiner.sh | bash -s 2
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/6ea8a1158d51cd2bb4acce9aa350987635df4ea4/install_pdf_combiner.sh | bash
 
-After running this command, restart Chrome and select the option to activate the extension.
+Install with the native messaging host (if using the Google Chrome extension ATS Beater):
 
-Install without the native messaging host:
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/6ea8a1158d51cd2bb4acce9aa350987635df4ea4/install_pdf_combiner.sh | bash -s 2
+    <!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/e894d4db0c6c259eafe8ce7b5a12942461127808/install_pdf_combiner.sh | bash
+After this second command finishes running, restart Chrome. Then, select the option to activate the extension from the browser.
 
-#### Manually Install
-
-Install dependencies:
-
-    brew install python@3.13
-    brew install python-tk
-    brew install pipenv
-
-Get the app:
-
-    cd ~/Applications
-    git clone https://github.com/boom100100/local_and_website_pdf_merger.git convert_and_combine_pdfs
-
-Configure the app:
-
-    cd convert_and_combine_pdfs
-    cp .env.example .env
-    cp -a outputs.example outputs
-
-        <!-- Optional: symbolically link it to your ideal location. -->
-
-        ln -s  ~/Applications/convert_and_combine_pdfs /SET/THIS/ABSOLUTE/PATH/convert_and_combine_pdfs
-
-    mkdir .venv
-    pipenv shell
-    pipenv install --python 3.13
-
-Configure the native host (if using Google Chrome extension ATS Beater):
-
-    chmod 755 install_host.sh
-    ./install_host.sh
-
-Now, restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
 
 ### Windows
-For Windows, manual and installer setup is within scope for future development (but development start date undetermined).
+For Windows, manual validation and installer setup is within scope for future development (but development start date undetermined).
 <!-- #### Installer TODO -->
 #### Manually Install
 <!-- TODO: must test this setup. -->
@@ -101,7 +69,7 @@ Configure the app:
     pipenv install --python 3.13
     sbase get uc_driver
 
-Configure the native host (if using Google Chrome extension ATS Beater):
+Configure the native host (configure this to use the Google Chrome extension ATS Beater):
 
     install_host.bat
 
