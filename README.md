@@ -26,13 +26,13 @@ This project won't support:
 Setup requires downloading the project and its dependencies.
 
 ### MacOs Install Script
-Only run one of the two commands. Enter the sign-in password when prompted.
+Only run one of the two commands. Use the standalone CLI app, or use the ATS Beater extension (it depends on the CLI app). Then, enter the sign-in password when prompted.
 
-Install the standalone CLI app:
+Get and install the standalone CLI app with the following command:
 
     curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/4d84f0a52b8e90109acd76e0068281b6302d28aa/install_pdf_combiner.sh | bash
 
-Install with the native messaging host (if using the Google Chrome extension ATS Beater):
+Or, install the CLI app with the native messaging host (if using the Google Chrome extension ATS Beater):
 
     curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/4d84f0a52b8e90109acd76e0068281b6302d28aa/install_pdf_combiner.sh | bash -s 2
 <!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
@@ -54,16 +54,17 @@ Install dependencies:
 <!-- TODO: must test this setup. -->
 <!-- TODO: must script this setup. -->
 
-Then, get and install the standalone CLI app with the following command:
-    install_app.bat
+Next, there are two options. Use the standalone CLI app, or use the ATS Beater extension (it depends on the CLI app).
 
-Or, get and install with the native messaging host (if using the Google Chrome extension ATS Beater):
+Get and install the standalone CLI app with the following command:
 
-    install_app.bat 1
-    <!-- TODO https://gist.github.com/boom100100/cb34b92b0b16721309b71eb972c2c010 -->
+    curl -sO https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/b3a0ab7b1c90fabebaae93551508b6f2b3d21262/install_app.bat && install_app.bat && del install_app.bat
 
+Or, install the CLI app with the native messaging host (if using the Google Chrome extension ATS Beater):
 
-If using the native messaging host, restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
+    curl -sO https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/b3a0ab7b1c90fabebaae93551508b6f2b3d21262/install_app.bat && install_app.bat 1 && del install_app.bat
+
+If using ATS Beater, restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
 
 
 ## Development
