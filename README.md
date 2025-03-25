@@ -35,46 +35,35 @@ Install the standalone CLI app:
 Install with the native messaging host (if using the Google Chrome extension ATS Beater):
 
     curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/4d84f0a52b8e90109acd76e0068281b6302d28aa/install_pdf_combiner.sh | bash -s 2
-    <!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
+<!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
 
 After this second command finishes running, restart Chrome. Then, select the option to activate the extension from the browser.
 
 
-### Windows
-For Windows, manual validation and installer setup is within scope for future development (but development start date undetermined).
-<!-- #### Installer TODO -->
-#### Manually Install
-<!-- TODO: must test this setup. -->
-<!-- TODO: must script this setup. -->
+### Windows Install Script
+
+For Windows, an install script for setup is within scope for future development (but development start date undetermined).
+
+#### Dependencies
 Install dependencies:
 
 - [python 3.11.9](https://www.python.org/downloads/release/python-3119/). The Tkinter dependency [should come included](https://tkdocs.com/tutorial/install.html#installwin) in the python installation.
 - pipenv
 
     pip install pipenv
+<!-- TODO: must test this setup. -->
+<!-- TODO: must script this setup. -->
 
-Get the app:
+Then, get and install the standalone CLI app with the following command:
+    install_app.bat
 
-    cd "C:\\Program Files"
-    git clone https://github.com/boom100100/local_and_website_pdf_merger.git convert_and_combine_pdfs
-    cd convert_and_combine_pdfs
+Or, get and install with the native messaging host (if using the Google Chrome extension ATS Beater):
 
-Configure the app:
+    install_app.bat 1
+    <!-- TODO https://gist.github.com/boom100100/cb34b92b0b16721309b71eb972c2c010 -->
 
-    copy .env.example.windows .env
-    copy Pipfile.windows Pipfile
-    xcopy outputs.example outputs /S /I
 
-    mkdir .venv
-    pipenv shell
-    pipenv install --python 3.11
-    sbase get uc_driver
-
-Configure the native host (configure this to use the Google Chrome extension ATS Beater):
-
-    install_host.bat
-
-And then restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
+If using the native messaging host, restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
 
 
 ## Development
