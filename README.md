@@ -30,14 +30,14 @@ Only run one of the two commands. Use the standalone CLI app, or use the ATS Bea
 
 Get and install the standalone CLI app with the following command:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/4d84f0a52b8e90109acd76e0068281b6302d28aa/install_pdf_combiner.sh | bash
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/0f59590337cac83addcbb26748f4bfb11f3858ec/install_pdf_combiner.sh | bash
 
 Or, install the CLI app with the native messaging host (if using the Google Chrome extension ATS Beater):
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/4d84f0a52b8e90109acd76e0068281b6302d28aa/install_pdf_combiner.sh | bash -s 2
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/0f59590337cac83addcbb26748f4bfb11f3858ec/install_pdf_combiner.sh | bash -s 2
 <!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
 
-After this second command finishes running, restart Chrome. Then, select the option to activate the extension from the browser.
+To enable ATS Beater, restart the Chrome browser so the extension gets installed. Then, in Chrome, select the option to activate the extension when it pops up.
 
 
 ### Windows Install Script
@@ -60,11 +60,11 @@ Get and install the standalone CLI app with the following command:
 
     curl -sO https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/b3a0ab7b1c90fabebaae93551508b6f2b3d21262/install_app.bat && install_app.bat && del install_app.bat
 
-Or, install the CLI app with the native messaging host (if using the Google Chrome extension ATS Beater):
+Or, get and install the CLI app with the native messaging host (if using the Google Chrome extension ATS Beater):
 
     curl -sO https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/b3a0ab7b1c90fabebaae93551508b6f2b3d21262/install_app.bat && install_app.bat 1 && del install_app.bat
 
-If using ATS Beater, restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
+If using ATS Beater, restart the Chrome browser so the extension gets installed. In Chrome, click the extensions button and select ATS Beater to activate the extension.
 
 
 ## Development
