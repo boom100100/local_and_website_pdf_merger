@@ -55,12 +55,14 @@ Install dependencies:
 <!-- TODO: must script this setup. -->
 
 Then, get and install the standalone CLI app with the following command:
-    install_app.bat
+
+    cmd /c < curl --url https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/df963e640ecf7b118f67408a7f629e4b8f215272/install_app.bat
 
 Or, get and install with the native messaging host (if using the Google Chrome extension ATS Beater):
 
-    install_app.bat 1
-    <!-- TODO https://gist.github.com/boom100100/cb34b92b0b16721309b71eb972c2c010 -->
+    cmd /c ""c:\Program Files\demo.cmd"" 1 < curl --url https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/df963e640ecf7b118f67408a7f629e4b8f215272/install_app.bat
+<!-- install_app.bat 1 -->
+<!-- TODO https://gist.github.com/boom100100/cb34b92b0b16721309b71eb972c2c010 -->
 
 If using the native messaging host, restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
 
