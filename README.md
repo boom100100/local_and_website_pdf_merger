@@ -30,11 +30,11 @@ Only run one of the two commands. Enter the sign-in password when prompted.
 
 Install the standalone CLI app:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/6ea8a1158d51cd2bb4acce9aa350987635df4ea4/install_pdf_combiner.sh | bash
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/4d84f0a52b8e90109acd76e0068281b6302d28aa/install_pdf_combiner.sh | bash
 
 Install with the native messaging host (if using the Google Chrome extension ATS Beater):
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/6ea8a1158d51cd2bb4acce9aa350987635df4ea4/install_pdf_combiner.sh | bash -s 2
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/4d84f0a52b8e90109acd76e0068281b6302d28aa/install_pdf_combiner.sh | bash -s 2
     <!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
 
 After this second command finishes running, restart Chrome. Then, select the option to activate the extension from the browser.
@@ -48,7 +48,7 @@ For Windows, manual validation and installer setup is within scope for future de
 <!-- TODO: must script this setup. -->
 Install dependencies:
 
-- [python 3.13.2](https://www.python.org/downloads/release/python-3132/). The Tkinter dependency [should come included](https://tkdocs.com/tutorial/install.html#installwin) in the python installation.
+- [python 3.11.9](https://www.python.org/downloads/release/python-3119/). The Tkinter dependency [should come included](https://tkdocs.com/tutorial/install.html#installwin) in the python installation.
 - pipenv
 
     pip install pipenv
@@ -61,12 +61,13 @@ Get the app:
 
 Configure the app:
 
-    cp .env.example .env
-    cp -a outputs.example outputs
+    copy .env.example.windows .env
+    copy Pipfile.windows Pipfile
+    xcopy outputs.example outputs /S /I
 
     mkdir .venv
     pipenv shell
-    pipenv install --python 3.13
+    pipenv install --python 3.11
     sbase get uc_driver
 
 Configure the native host (configure this to use the Google Chrome extension ATS Beater):
@@ -129,3 +130,5 @@ exit
 pipenv shell
 flask --version
 ```
+
+## Learnings
