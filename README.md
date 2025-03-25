@@ -37,7 +37,7 @@ Install with the native messaging host (if using the Google Chrome extension ATS
     curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/0f59590337cac83addcbb26748f4bfb11f3858ec/install_pdf_combiner.sh | bash -s 2
 <!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
 
-After this second command finishes running, restart Chrome. Then, select the option to activate the extension from the browser.
+To enable ATS Beater, restart Chrome. Then, select the option to activate the extension from the browser.
 
 
 ### Windows Install Script
@@ -56,15 +56,13 @@ Install dependencies:
 
 Then, get and install the standalone CLI app with the following command:
 
-    cmd /c < curl --url https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/df963e640ecf7b118f67408a7f629e4b8f215272/install_app.bat
+    curl -sO https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/25fb74aaaea55c513b21fde066a6d61fab7fd055/install_app.bat && install_app.bat && del install_app.bat ⁠
 
 Or, get and install with the native messaging host (if using the Google Chrome extension ATS Beater):
 
-    cmd /c ""c:\Program Files\demo.cmd"" 1 < curl --url https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/df963e640ecf7b118f67408a7f629e4b8f215272/install_app.bat
-<!-- install_app.bat 1 -->
-<!-- TODO https://gist.github.com/boom100100/cb34b92b0b16721309b71eb972c2c010 -->
+    curl -sO https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/25fb74aaaea55c513b21fde066a6d61fab7fd055/install_app.bat && install_app.bat 1 && del install_app.bat ⁠
 
-If using the native messaging host, restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
+If using ATS Beater, restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
 
 
 ## Development
