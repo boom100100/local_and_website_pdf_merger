@@ -2,10 +2,11 @@
 
 """Convert and Combine PDFs Native Messaging."""
 
-import subprocess
-import sys
 import json
+import platform
+import subprocess
 import struct
+import sys
 
 # Read a message from stdin and decode it.
 def getMessage():
@@ -34,11 +35,16 @@ def sendMessage(encodedMessage):
     sys.stdout.buffer.write(encodedMessage['content'])
     sys.stdout.buffer.flush()
 
+cmd = {
+    "Darwin": ".venv/bin/python3",
+    "Windows": ".venv\Scripts\python",
+}
+
 while True:
     receivedMessage: dict = getMessage()
     process = subprocess.Popen(
         [
-            ".venv/bin/python3",
+            cmd[platform.system()],
             "./invoke_combine_pdfs.py", # also works
             # TODO: it's obviously not necessary to constantly pass these values to json.dumps and json.loads, but I'm going to leave it in as a reminder of the nature of network data. I think that's fine, since this initial app isn't meant to send massive amounts of webpage url data and since it won't run on a remote/paid server.
             json.dumps(receivedMessage),

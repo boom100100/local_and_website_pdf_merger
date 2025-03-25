@@ -1,13 +1,28 @@
 import os
+import platform
 
+platform_command_map = {
+    "Darwin": {
+        "launch": "open",
+        "delete": "rm",
+    },
+    "Windows": {
+        "launch": "explorer",
+        "delete": "del",
+    },
+}
+def get_platform_specific_cmd(command_name: str) -> str:
+    return platform_command_map[platform.system()][command_name]
 
 def delete_files(file_paths, condition):
     if condition:
         for path in file_paths:
             if os.path.isfile(path):
-                os.system(f'rm "{path}"')
+                os.system(f'{get_platform_specific_cmd("delete")} "{path}"')
 
-        print(f"Finished deleting files:\n\n{'\n'.join(file_paths)}")
+        files_string = '\n'.join(file_paths)
+        print("Finished deleting files:\n\n")
+        print(files_string)
 
 
 def get_unique_file_name(
@@ -28,4 +43,4 @@ def open_file(path: str, condition: bool):
     # including isfile check to make sure there's no weird injection activity. 
     # TODO: validate need for this further.
     if condition and os.path.isfile(path):
-        os.system(f'open "{path}"')
+        os.system(f'{get_platform_specific_cmd("launch")} "{path}"')
