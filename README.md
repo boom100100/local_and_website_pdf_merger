@@ -2,7 +2,7 @@
 
 ## Description
 
-Python CLI tools for merging PDFs.
+Python CLI tools for merging PDFs. The [ATS Beater](https://github.com/boom100100/ats-beater) (the [Google Chrome extension](https://chromewebstore.google.com/detail/ats-beater/diefpbmcaopdlphclenlgfcmeafacojg)) depends on this CLI app.
 
 Features
 - Combine PDF files from the local computer.
@@ -54,7 +54,7 @@ Install dependencies:
 <!-- TODO: must test this setup. -->
 <!-- TODO: must script this setup. -->
 
-Next, there are two options. Use the standalone CLI app, or use the ATS Beater extension (it depends on the CLI app).
+Next, there are two options. Install the standalone CLI app, or install both the ATS Beater extension and the CLI app.
 
 Get and install the standalone CLI app with the following command:
 
@@ -71,12 +71,12 @@ If using ATS Beater, restart the Chrome browser so the extension gets installed.
 ### Scope
 Development needs for this project include the following:
 
-- Writing end-to-end tests.
-- Writing Uninstallers.
-- Windows
-  - Writing installation instructions. These will live in a gist that this readme will link to in the setup instructions section.
-  - Testing installation. The installation instructions must allow a fresh install to work. And user interactivity must be limited to enabling elevated privileges and uncircumventable manual input requirements within the browser (like enabling the added Chrome extension).
-  - UA testing. The cross-platform nature of the project requires testing redundantly while Windows remains less fully developed.
+- [ ] Writing end-to-end tests.
+- [ ] Writing Uninstallers.
+- [ ] Windows
+  - [x] Writing installation instructions. These will live in a gist that this readme will link to in the setup instructions section.
+  - [ ] Testing installation. The installation instructions must allow a fresh install to work. And user interactivity must be limited to enabling elevated privileges and uncircumventable manual input requirements within the browser (like enabling the added Chrome extension).
+  - [ ] UA testing. The cross-platform nature of the project requires testing redundantly while Windows remains less fully developed.
 
 ### Process
 TBD. For now, open a pull request and tag @boom100100.
