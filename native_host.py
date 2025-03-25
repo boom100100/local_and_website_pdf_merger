@@ -36,15 +36,19 @@ def sendMessage(encodedMessage):
     sys.stdout.buffer.flush()
 
 cmd = {
-    "Darwin": ".venv/bin/python3",
-    "Windows": ".venv\Scripts\python",
+    "Darwin": {
+        "python": ".venv/bin/python"
+    },
+    "Windows": {
+        "python": ".venv\Scripts\python"
+    },
 }
 
 while True:
     receivedMessage: dict = getMessage()
     process = subprocess.Popen(
         [
-            cmd[platform.system()],
+            cmd[platform.system()]["python"],
             "./invoke_combine_pdfs.py", # also works
             # TODO: it's obviously not necessary to constantly pass these values to json.dumps and json.loads, but I'm going to leave it in as a reminder of the nature of network data. I think that's fine, since this initial app isn't meant to send massive amounts of webpage url data and since it won't run on a remote/paid server.
             json.dumps(receivedMessage),
