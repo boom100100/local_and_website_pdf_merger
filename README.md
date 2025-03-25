@@ -26,7 +26,7 @@ This project won't support:
 Setup requires downloading the project and its dependencies.
 
 ### MacOs Install Script
-Only run one of the two commands. Use the standalone CLI app, or use the ATS Beater extension (it depends on the CLI app). Then, enter the sign-in password when prompted.
+Only run one of the two commands below.
 
 Get and install the standalone CLI app with the following command:
 
