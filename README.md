@@ -30,11 +30,11 @@ Only run one of the two commands. Enter the sign-in password when prompted.
 
 Install the standalone CLI app:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/4d84f0a52b8e90109acd76e0068281b6302d28aa/install_pdf_combiner.sh | bash
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/0f59590337cac83addcbb26748f4bfb11f3858ec/install_pdf_combiner.sh | bash
 
 Install with the native messaging host (if using the Google Chrome extension ATS Beater):
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/4d84f0a52b8e90109acd76e0068281b6302d28aa/install_pdf_combiner.sh | bash -s 2
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/0f59590337cac83addcbb26748f4bfb11f3858ec/install_pdf_combiner.sh | bash -s 2
 <!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
 
 After this second command finishes running, restart Chrome. Then, select the option to activate the extension from the browser.
@@ -61,7 +61,6 @@ Or, get and install with the native messaging host (if using the Google Chrome e
 
     install_app.bat 1
     <!-- TODO https://gist.github.com/boom100100/cb34b92b0b16721309b71eb972c2c010 -->
-
 
 If using the native messaging host, restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
 
