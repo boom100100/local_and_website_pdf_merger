@@ -1,3 +1,3 @@
 @echo off
 
-call python3 ./native_host.py
+call python ./native_host.py

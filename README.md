@@ -26,54 +26,45 @@ This project won't support:
 Setup requires downloading the project and its dependencies.
 
 ### MacOs Install Script
-Only run one of the two commands. Enter the sign-in password when prompted.
+Only run one of the two commands below.
 
-Install the standalone CLI app:
+Get and install the standalone CLI app with the following command:
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/6ea8a1158d51cd2bb4acce9aa350987635df4ea4/install_pdf_combiner.sh | bash
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/0f59590337cac83addcbb26748f4bfb11f3858ec/install_pdf_combiner.sh | bash
 
-Install with the native messaging host (if using the Google Chrome extension ATS Beater):
+Or, install the CLI app with the native messaging host (if using the Google Chrome extension ATS Beater):
 
-    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/6ea8a1158d51cd2bb4acce9aa350987635df4ea4/install_pdf_combiner.sh | bash -s 2
-    <!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
+    curl https://gist.githubusercontent.com/boom100100/f57dd0460a30bfbe1d920a2d7322d84c/raw/0f59590337cac83addcbb26748f4bfb11f3858ec/install_pdf_combiner.sh | bash -s 2
+<!-- NOTE: if another native messaging host is added, this arg can represent a specific one instead of the script just checking for its presence -->
 
-After this second command finishes running, restart Chrome. Then, select the option to activate the extension from the browser.
+To enable ATS Beater, restart the Chrome browser so the extension gets installed. Then, in Chrome, select the option to activate the extension when it pops up.
 
 
-### Windows
-For Windows, manual validation and installer setup is within scope for future development (but development start date undetermined).
-<!-- #### Installer TODO -->
-#### Manually Install
-<!-- TODO: must test this setup. -->
-<!-- TODO: must script this setup. -->
+### Windows Install Script
+
+For Windows, an install script for setup is within scope for future development (but development start date undetermined).
+
+#### Dependencies
 Install dependencies:
 
-- [python 3.13.2](https://www.python.org/downloads/release/python-3132/). The Tkinter dependency [should come included](https://tkdocs.com/tutorial/install.html#installwin) in the python installation.
+- [python 3.11.9](https://www.python.org/downloads/release/python-3119/). The Tkinter dependency [should come included](https://tkdocs.com/tutorial/install.html#installwin) in the python installation.
 - pipenv
 
     pip install pipenv
+<!-- TODO: must test this setup. -->
+<!-- TODO: must script this setup. -->
 
-Get the app:
+Next, there are two options. Use the standalone CLI app, or use the ATS Beater extension (it depends on the CLI app).
 
-    cd "C:\\Program Files"
-    git clone https://github.com/boom100100/local_and_website_pdf_merger.git convert_and_combine_pdfs
-    cd convert_and_combine_pdfs
+Get and install the standalone CLI app with the following command:
 
-Configure the app:
+    curl -sO https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/b3a0ab7b1c90fabebaae93551508b6f2b3d21262/install_app.bat && install_app.bat && del install_app.bat
 
-    cp .env.example .env
-    cp -a outputs.example outputs
+Or, get and install the CLI app with the native messaging host (if using the Google Chrome extension ATS Beater):
 
-    mkdir .venv
-    pipenv shell
-    pipenv install --python 3.13
-    sbase get uc_driver
+    curl -sO https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/b3a0ab7b1c90fabebaae93551508b6f2b3d21262/install_app.bat && install_app.bat 1 && del install_app.bat
 
-Configure the native host (configure this to use the Google Chrome extension ATS Beater):
-
-    install_host.bat
-
-And then restart Chrome so the extension gets installed. Select the option to activate the extension from the web browser.
+If using ATS Beater, restart the Chrome browser so the extension gets installed. In Chrome, click the extensions button and select ATS Beater to activate the extension.
 
 
 ## Development
@@ -129,3 +120,5 @@ exit
 pipenv shell
 flask --version
 ```
+
+## Learnings

@@ -46,11 +46,10 @@ class Pdf:
             return
 
         if len(file_locations) == 1:
-            print(f"""There is only one file to combine:
-
-{file_locations[0]}
-
-{'This file will not be deleted in this process.\n\n' if file_locations_for_deletion and self.should_open_output_file and self.should_delete_downloaded_files else ''}Ending process early.""")
+            print("There is only one file to combine:\n\n")
+            print(file_locations[0])
+            print('\n\nThis file will not be deleted in this process.\n\n' if file_locations_for_deletion and self.should_open_output_file and self.should_delete_downloaded_files else '\n\n')
+            print("Ending process early.")
             open_file(file_locations[0], self.should_open_output_file)
             should_delete_edge_case = self.should_delete_downloaded_files and not self.should_open_output_file
             delete_files(file_locations_for_deletion, should_delete_edge_case)

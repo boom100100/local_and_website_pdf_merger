@@ -9,4 +9,5 @@ latest_logs/
 
 log.txt
 .env
-convert_and_combine_pdfs.json
+**/*.json
+Pipfile
