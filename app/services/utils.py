@@ -3,24 +3,6 @@ import pathlib
 import platform
 import subprocess
 
-from collections.abc import Callable
-
-
-platform_command_map = {
-    "Darwin": {
-        "open pdf": lambda path: subprocess.Popen(("open", path), stdout=subprocess.PIPE).communicate(),
-    },
-    "Windows": {
-        "open pdf": os.startfile,
-    },
-}
-
-
-system = platform.system()
-
-
-def get_platform_specific_cmd(command_name: str) -> Callable:
-    return platform_command_map[system][command_name]
 
 def delete_files(file_paths, condition):
     if condition:
@@ -52,4 +34,11 @@ def open_file(path: str, condition: bool) -> None:
     # including isfile check to make sure there's no weird injection activity. 
     # TODO: validate need for this further.
     if condition and os.path.isfile(path):
-        get_platform_specific_cmd("open pdf")(path)
+        if system := platform.system() == "Windows":
+            command = os.startfile
+        elif system == "Darwin":
+            command = lambda path: subprocess.Popen(("open", path), stdout=subprocess.PIPE).communicate()
+        else:
+            command = lambda path: None
+
+        command(path)
