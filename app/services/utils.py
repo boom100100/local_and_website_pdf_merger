@@ -30,6 +30,7 @@ def get_unique_file_name(
     
     return final_name
 
+
 def open_file(path: str, condition: bool) -> None:
     # including isfile check to make sure there's no weird injection activity. 
     # TODO: validate need for this further.
