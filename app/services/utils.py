@@ -36,7 +36,7 @@ def open_file(path: str, condition: bool) -> None:
     # TODO: validate need for this further.
     if condition and os.path.isfile(path):
         if (system := platform.system()) == "Windows":
-            command = lambda path: os.system(f'"{path}"') # worked.
+            command = lambda path: os.system(f'"{path}"')
         elif system == "Darwin":
             command = lambda path: subprocess.Popen(("open", path), stdout=subprocess.PIPE).communicate()
         else:
