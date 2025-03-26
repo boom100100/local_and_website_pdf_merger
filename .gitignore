@@ -11,3 +11,4 @@ log.txt
 .env
 **/*.json
 Pipfile
+Pipfile.lock
