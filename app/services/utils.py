@@ -35,10 +35,10 @@ def open_file(path: str, condition: bool) -> None:
     # including isfile check to make sure there's no weird injection activity. 
     # TODO: validate need for this further.
     if condition and os.path.isfile(path):
-        if system := platform.system() == "Windows":
+        if (system := platform.system()) == "Windows":
             command = os.startfile
         elif system == "Darwin":
-            command = lambda path: subprocess.Popen(("open", path), stdout=subprocess.PIPE).communicate()
+            command = lambda path: subprocess.Popen(("open", path)).communicate()
         else:
             command = lambda path: None
 
