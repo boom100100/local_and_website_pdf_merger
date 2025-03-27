@@ -58,11 +58,11 @@ Next, there are two options. Install the standalone CLI app, or install both the
 
 Get and install the standalone CLI app with the following command:
 
-    curl -sO https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/b3a0ab7b1c90fabebaae93551508b6f2b3d21262/install_app.bat && install_app.bat && del install_app.bat
+    curl -sO https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/d0919ad08674930001e2bf88e3f912840965a59b/install_app.bat && install_app.bat && del install_app.bat
 
 Or, get and install the CLI app with the native messaging host (if using the Google Chrome extension ATS Beater):
 
-    curl -sO https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/b3a0ab7b1c90fabebaae93551508b6f2b3d21262/install_app.bat && install_app.bat 1 && del install_app.bat
+    curl -sO https://gist.githubusercontent.com/boom100100/cb34b92b0b16721309b71eb972c2c010/raw/d0919ad08674930001e2bf88e3f912840965a59b/install_app.bat && install_app.bat 1 && del install_app.bat
 
 If using ATS Beater, restart the Chrome browser so the extension gets installed. In Chrome, click the extensions button and select ATS Beater to activate the extension.
 
