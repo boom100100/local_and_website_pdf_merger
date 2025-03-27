@@ -124,4 +124,4 @@ flask --version
 ## Learnings
 - Yoshi is born wearing a saddle. (It's probably not a shell, as Yoshi is a dinosaur/dragon.)
 - Female dinosaurs lay eggs. As for Yoshi and Birdo's gender... have they ever been asked about that identity? There are so many opinions.
-- Is Mario punching Yoshi on the back of the head, or... ? Oh, he's *pointing*. And Yoshi can see it from behind him somehow. Sure.
+- Is Mario punching Yoshi on the back of the head, or... ? Oh, he's *pointing*. And Yoshi can see that somehow.
