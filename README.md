@@ -122,3 +122,6 @@ flask --version
 ```
 
 ## Learnings
+- Yoshi is born wearing a saddle. (It's probably not a shell, as Yoshi is a dinosaur.)
+- Yoshi and Birdo's gender... have they ever been asked about that identity? There are so many opinions.
+- Is Mario punching him on the back of the head, or... ? Oh, he's pointing. And Yoshi can see it from behind him somehow. Okay, let's go with that.
