@@ -89,7 +89,7 @@ See file at:
 
         with SB(uc=True) as sb:
             sb.activate_cdp_mode(url=webpage_url)
-            sb.uc_gui_click_captcha()
+            sb.sleep(1)
             # sb.uc_gui_click_cf()
             # sb.uc_gui_click_rc()
             # TODO: there are some issues with indeed.com redirecting upon opening the print dialog.
