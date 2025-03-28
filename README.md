@@ -73,10 +73,10 @@ Development needs for this project include the following:
 
 - [ ] Writing end-to-end tests.
 - [ ] Writing Uninstallers.
-- [ ] Windows
+- [x] Windows
   - [x] Writing installation instructions. These will live in a gist that this readme will link to in the setup instructions section.
-  - [ ] Testing installation. The installation instructions must allow a fresh install to work. And user interactivity must be limited to enabling elevated privileges and uncircumventable manual input requirements within the browser (like enabling the added Chrome extension).
-  - [ ] UA testing. The cross-platform nature of the project requires testing redundantly while Windows remains less fully developed.
+  - [x] Testing installation. The installation instructions must allow a fresh install to work. And user interactivity must be limited to enabling elevated privileges and uncircumventable manual input requirements within the browser (like enabling the added Chrome extension).
+  - [x] UA testing. The cross-platform nature of the project requires testing redundantly while Windows remains less fully developed.
 
 ### Process
 TBD. For now, open a pull request and tag @boom100100.
@@ -122,3 +122,6 @@ flask --version
 ```
 
 ## Learnings
+- Yoshi is born wearing boots and a saddle. (It's probably not a shell, as Yoshi is a dinosaur/dragon, not a koopa.)
+- Female dinosaurs lay eggs. As for Yoshi and Birdo's gender... have they ever been asked about that identity? There are so many opinions.
+- Is Mario punching Yoshi on the back of the head, or... ? Oh, he's *pointing*. And Yoshi can see that somehow.
