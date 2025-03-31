@@ -40,10 +40,7 @@ Or, install the CLI app with the native messaging host (if using the Google Chro
 To enable ATS Beater, restart the Chrome browser so the extension gets installed. Then, in Chrome, select the option to activate the extension when it pops up.
 
 
-### Windows Install Script
-
-For Windows, an install script for setup is within scope for future development (but development start date undetermined).
-
+### Windows 
 #### Dependencies
 Install dependencies:
 
@@ -54,7 +51,8 @@ Install dependencies:
 <!-- TODO: must test this setup. -->
 <!-- TODO: must script this setup. -->
 
-Next, there are two options. Install the standalone CLI app, or install both the ATS Beater extension and the CLI app.
+#### Install Script
+After setting up the dependencies, there are two options. Install the standalone CLI app, or install both the ATS Beater extension and the CLI app.
 
 Get and install the standalone CLI app with the following command:
 
