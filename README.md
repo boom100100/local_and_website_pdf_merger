@@ -47,8 +47,7 @@ Install dependencies:
 - [python 3.11.9](https://www.python.org/downloads/release/python-3119/). The Tkinter dependency [should come included](https://tkdocs.com/tutorial/install.html#installwin) in the python installation.
 - pipenv
 
-    pip install pipenv
-<!-- TODO: must test this setup. -->
+      pip install pipenv
 <!-- TODO: must script this setup. -->
 
 #### Install Script
@@ -118,8 +117,3 @@ exit
 pipenv shell
 flask --version
 ```
-
-## Learnings
-- Yoshi is born wearing boots and a saddle. (It's probably not a shell, as Yoshi is a dinosaur/dragon, not a koopa.)
-- Female dinosaurs lay eggs. As for Yoshi and Birdo's gender... have they ever been asked about that identity? There are so many opinions.
-- Is Mario punching Yoshi on the back of the head, or... ? Oh, he's *pointing*. And Yoshi can see that somehow.
